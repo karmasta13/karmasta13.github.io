@@ -340,7 +340,7 @@ header {
 /*---------------- experience ----------------*/
 .services__container {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
     gap: 6rem;
     margin-top: 4rem;
 }
@@ -400,3 +400,6 @@ header {
 .experience-icon {
     color: rgb(245, 171, 50); /* Your desired icon color */
 }
+
+
+/*---------------- projects ----------------*/

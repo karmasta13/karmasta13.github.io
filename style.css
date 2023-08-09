@@ -403,3 +403,193 @@ header {
 
 
 /*---------------- projects ----------------*/
+
+.projects__categories{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0.2rem;
+    flex-wrap: wrap;
+}
+
+.projects__categories li {
+    background: var(--color-gray-100);
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius-4);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+    font-size: 0.8rem;
+
+}
+
+.projects__categories li:hover,
+li.mixitup-control-active  {
+   background: var(--color-primary);
+   color: var(--color-gray-100);
+
+}
+
+.projects__container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 3.5rem;
+}
+
+
+
+.project {
+    background: var(--color-gray-100);
+    padding: 1.4rem;
+    border-radius: var(--radius-2);
+    transition: var(--transition);
+    cursor: pointer;
+
+    /* mix it up animation */
+    opacity: 0;
+    animation: identifier 1s ease forwards;
+}
+
+@keyframes identifier {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project:hover{
+    box-shadow: 0 3rem 2rem rgba(0,0,0,0.1);
+}
+
+.project__image {
+    height:auto;
+    max-height: 12rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius-4);
+    overflow: hidden;
+}
+
+.project p {
+    margin: 0.5rem 0 1.5rem;
+}
+
+.project__cta {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    margin-top: 1rem; /* Adding some margin for spacing */
+}
+
+.project__cta a {
+    margin-left: 1rem; /* Adding some space between the icons */
+    font-size: 24px; /* Adjust the icon size as needed */
+    color: rgb(245, 171, 50); /* Setting the icon color */
+    text-decoration: none; /* Remove underline */
+}
+
+/*---------------- footers ----------------*/
+
+footer {
+    background: var(--color-gray-200);
+    padding-top: 6rem;
+}
+
+.footer__menu{
+    display:flex;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.footer__menu a {
+    color: hsl(var(--primary-hue), 5%, 55%);
+    transition: var(--transition);
+    
+}
+
+.footer__menu a:hover{
+    color: var(--color-primary);
+}
+
+.footer__copyright{
+   text-align: center;
+   padding: 1.5rem 0;
+   color: var(--color-gray-400);
+   margin-top: 4rem;
+}
+
+@media( max-width: 768px){
+    h1{
+        font-size: 1.8rem;
+    }
+    p,a,figcaption{
+        font-size: 1rem;
+    }
+
+    .container{
+        width: var(--container-width-sm);
+    }
+    section {
+        padding: 7rem 0;
+    }
+    section >h1, section>p {
+        width: var(--container-width-sm)
+    }
+
+    .nav__menu{
+        position: fixed;
+        right:0;
+        top: 3.8rem;
+        flex-direction: column;
+        gap: 0;
+        width: fit-content;
+        display: none;
+
+    }
+
+    .nav__menu li {
+        width: 100%;
+    }
+
+    .nav__menu li a {
+        background-color: var(--color-gray-200);
+        padding: 1rem 4rem;
+        width: 100;
+        display: block;
+        text-align: center;
+        box-shadow: -2rem 5rem 5rem rgba(0,0,0,0.3);
+
+    }
+
+    .nav__toggle-open, .nav__toggle-close{
+        display: inline-block;
+        background: transparent;
+        font-size: 1.8rem;
+        color: var(--color-gray-900);
+
+    }
+
+    .nav__toggle-close{
+        display: none;
+    }
+
+    .nav__buttons{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    header, section, footer{
+        display: none;
+    }
+}

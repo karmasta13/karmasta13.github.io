@@ -49,3 +49,56 @@ var mixer = mixitup(containerEl, {
 });
 
 mixer.filter('*');
+
+
+
+/// ---------- toggle --------------
+const navMenu = document.querySelector('.nav__menu')
+const navOpenBtn = document.querySelector('.nav__toggle-open')
+const navClosenBtn = document.querySelector('.nav__toggle-close')
+
+const openNavHandler = () => {
+    navMenu.style.display = 'flex';
+    navOpenBtn.style.display = 'none';
+    navClosenBtn.style.display = 'inline-block';
+
+}
+const closeNavHandler = () => {
+    navMenu.style.display = 'none';
+    navOpenBtn.style.display = 'inline-block';
+    navClosenBtn.style.display = 'none';
+
+}
+
+
+
+navOpenBtn.addEventListener('click', openNavHandler)
+navClosenBtn.addEventListener('click', closeNavHandler)
+
+// close nam menu on click of nav link on small screen
+const navItems = navMenu.querySelectorAll('a');
+if(window.innerWidth < 768){
+    navItems.forEach(item => {
+        item.addEventListener('click',closeNavHandler)
+    }
+        )
+}
+
+
+/// ---------- theme toggle button --------------
+
+document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.querySelector('.nav__theme-btn');
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+    });
+
+    // Set dark theme as default
+    document.body.classList.add('dark');
+});
+
+
+
+
+
+

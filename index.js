@@ -113,6 +113,10 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const currentYear = new Date().getFullYear();
+    const copyrightElement = document.getElementById("copyright");
+    copyrightElement.innerHTML = `${currentYear} Karmacharya &copy; All Rights Reserved`;
+
 
 
 

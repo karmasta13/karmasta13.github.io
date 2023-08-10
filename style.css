@@ -455,6 +455,11 @@ li.mixitup-control-active  {
     gap: 3.5rem;
 }
 
+.projects__container p{
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 
 
 .project {
@@ -483,6 +488,7 @@ li.mixitup-control-active  {
 .project__image {
     height:auto;
     max-height: 12rem;
+    min-height: 12rem;
     margin-bottom: 1.5rem;
     border-radius: var(--radius-4);
     overflow: hidden;
@@ -494,7 +500,8 @@ li.mixitup-control-active  {
 
 .project__cta {
     display: flex;
-    justify-content: flex-end; /* Align items to the right */
+    justify-content: flex-end; /* Align items horizontally to the right */
+    align-items: center; /* Align items vertically in the center */
     margin-top: 1rem; /* Adding some margin for spacing */
 }
 
@@ -504,6 +511,7 @@ li.mixitup-control-active  {
     color: rgb(245, 171, 50); /* Setting the icon color */
     text-decoration: none; /* Remove underline */
 }
+
 
 /*---------------- footers ----------------*/
 
@@ -695,4 +703,39 @@ footer {
     background: var(--color-gray-300);
     color: var(--color-gray-900);
 }
+
+
+/* Common styling for glowing effect */
+.glowing-effect {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+/* Glowing effect on hover */
+.glowing-effect::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 10px;
+    background-color: transparent;
+    box-shadow: 0 0 10px 5px yellow;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.glowing-effect:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
 

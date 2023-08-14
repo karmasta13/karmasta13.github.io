@@ -53,6 +53,7 @@
 
 }
 
+
 html {
     scroll-behavior: smooth;
 }
@@ -106,6 +107,12 @@ h2 {
     width: fit-content;
     cursor: pointer;
     transition: var(--transition);
+}
+
+.btn:hover{
+    background: var(--color-primary);
+    color: white;
+
 }
 
 .btn.sm{
@@ -344,6 +351,8 @@ header {
 .about__details p {
     margin-top: 2rem;
     margin-bottom: 0.8rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .about__details .btn{
@@ -353,9 +362,18 @@ header {
     align-items: center;
 }
 
+.about__details .btn:hover{
+    background: var(--color-primary);
+    color: white;
+
+}
+
+
 .about__details .btn i{
     font-size: 1.2rem;
 }
+
+
 
 /*---------------- experience ----------------*/
 .services__container {
@@ -519,7 +537,7 @@ li.mixitup-control-active  {
 
 footer {
     background: var(--color-gray-200);
-    padding-top: 6rem;
+    padding-top: 3rem;
 
 }
 
@@ -527,11 +545,15 @@ footer {
     display:flex;
     gap: 3rem;
     justify-content: center;
+    /* display: none; */
+
 }
+
 
 .footer__menu a {
     color: hsl(var(--primary-hue), 5%, 55%);
     transition: var(--transition);
+    font-size: larger;
     
 }
 
@@ -540,10 +562,13 @@ footer {
 }
 
 .footer__copyright{
+
    text-align: center;
    padding: 1.5rem 0;
    color: var(--color-gray-400);
-   margin-top: 4rem;
+   margin-top: 2rem;
+   justify-content: center;
+
 }
 
 @media( max-width: 768px){
@@ -583,7 +608,7 @@ footer {
     .nav__menu li a {
         background-color: var(--color-gray-200);
         padding: 1rem 4rem;
-        width: 100;
+        width: 100%;
         display: block;
         text-align: center;
         box-shadow: -2rem 5rem 5rem rgba(0,0,0,0.3);
@@ -694,7 +719,7 @@ footer {
     }
 
     .footer__menu{
-        flex-direction: column;
+        /* flex-direction: column; */
         gap: 1.6rem;
         align-items:center;
     }

@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./assets/favicon1.png" type="image/png" sizes="64x64">
@@ -14,9 +15,22 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="./style.css">
+
+
+
+
 </head>
 
 <body>
+    <!-- Add this div as the first child of the body -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+
+
+
+
 
     <nav>
         <div class="container nav__container">
@@ -24,13 +38,15 @@
                 <img src="./assets/logo.png" alt="Navbar logo">
             </a>
             <ul class="nav__menu">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experiences</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <!-- <li><a href="engagement.html">Other Initiatives</a></li> -->
                 <li><a href="#contacts">Contacts</a></li>
+
             </ul>
-            <div class="nav__buttons">
+            <div class="nav__buttons" style="margin-top: 1rem;">
                 <button class="nav__theme-btn" style="margin-top: 5px;"><i class="uil uil-moon"></i></button>
                 <button class="nav__toggle-open"><i class="uil uil-bars"></i></button>
                 <button class="nav__toggle-close"><i class="uil uil-multiply"></i></button>
@@ -78,22 +94,22 @@
             <div class="about__details">
                 <h1>About me</h1>
                 <!-- <div class="about__cards">
-                    <article class="about__card">
-                        <i class = "uil uil-award-alt"></i>
-                        <h4>Experience</h4>
-                        <small>2+ years</small>
-                    </article>
-                    <article class="about__card">
-                        <i class = "uil uil-swatchbook"></i>
-                        <h4>Projects</h4>
-                        <small>10+ completed projects</small>
-                    </article>
-                    <article class="about__card">
-                        <i class = "uil uil-users-alt"></i>
-                        <h4>Clients</h4>
-                        <small>10+ worldwide clients</small>
-                    </article>
-                </div> -->
+                        <article class="about__card">
+                            <i class = "uil uil-award-alt"></i>
+                            <h4>Experience</h4>
+                            <small>2+ years</small>
+                        </article>
+                        <article class="about__card">
+                            <i class = "uil uil-swatchbook"></i>
+                            <h4>Projects</h4>
+                            <small>10+ completed projects</small>
+                        </article>
+                        <article class="about__card">
+                            <i class = "uil uil-users-alt"></i>
+                            <h4>Clients</h4>
+                            <small>10+ worldwide clients</small>
+                        </article>
+                    </div> -->
                 <p>
                     When it comes to data, I'm like a modern day Enola Holmes, always on the hunt for the story behind
                     the numbers. With a background in design, I add a touch of flair to my analysis, making even the
@@ -301,8 +317,8 @@
             <article class="header__content">
                 <h1>Get In Touch</h1>
                 <!-- <article class="header__image">
-                    <div> <img src="./assets/header.png" alt="Header image"></div>
-                </article> -->
+                        <div> <img src="./assets/header.png" alt="Header image"></div>
+                    </article> -->
                 <p> Although I’m not currently looking for any new opportunities, my inbox is always open. Whether you
                     have a question or just want to say hi, I’ll try my best to get back to you!
                 </p>
@@ -338,10 +354,16 @@
 
 
 
+    </script>
     <script src="./mix/dist/mixitup.min.js"></script>
 
     <script src="./data.js"></script>
     <script src="./index.js"></script>
+    <script src="./mix/dist/mixitup.min.js"></script>
+    <script src="./data.js"></script>
+    <script src="./index.js"></script>
+
+
 </body>
 
 </html>

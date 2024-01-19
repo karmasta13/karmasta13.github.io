@@ -36,6 +36,36 @@
     --color-gray-900: hsl(var(--primary-hue), 0%, 5%);
 }
 
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black; /* Semi-transparent white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's above other content */
+}
+
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #757575; /* Spinner color */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite; /* Spinner animation */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
 .dark {
     --primary-hue: 37;
 
@@ -180,6 +210,10 @@ nav {
     /* border-radius: 50%; */
     overflow: hidden;
     aspect-ratio: 1/1;
+}
+
+.hidden{
+    display: none;
 }
 
 .nav__menu {
@@ -702,11 +736,11 @@ footer {
     }
 
     .projects__categories{
-        gap: 0.7rem;
+        gap: 0.5rem;
     }
 
     .projects__categories li {
-        padding: 0.8rem 1rem;
+        padding: 0.8rem 0.8rem;
     }
 
     .projects__container{

@@ -93,9 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('dark');
     });
 
-    // Set dark theme as default
-    document.body.classList.add('dark');
+    // Add loading overlay for 2 seconds
+    const loadingOverlay = document.getElementById('loading-overlay');
+    setTimeout(() => {
+        loadingOverlay.style.display = 'none'; 
+        document.body.classList.add('dark'); 
+    }, 0); 
 });
+
 
 
 //DOM load event
@@ -113,10 +118,26 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear();
     const copyrightElement = document.getElementById("copyright");
     copyrightElement.innerHTML = `${currentYear} Karmacharya &copy; All Rights Reserved`;
 
+
+const indexPage = document.getElementById('index-page');
+const addPage = document.getElementById('add-page');
+
+function navigateToIndex() {
+    addPage.classList.remove('active');
+    indexPage.classList.add('active');
+}
+
+function navigateToAdd() {
+    indexPage.classList.remove('active');
+    addPage.classList.add('active');
+}
+
+// You can call these functions when navigating using links or buttons
+    
 
 
 

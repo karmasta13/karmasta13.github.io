@@ -10,23 +10,35 @@ const servicesData = [
 
                             " Led identity fraud detection analysis using anomaly detection, clustering, and classification techniques, leading to improved fraud detection and prevention measures",
 
-                            " Led supervised learning models, including XGBoost, to predict future worker performance based on their current experience",
-
-                            " Implemented proof of concept solutions to identify and prevent fraudulent activities within the platform, using data from keystrokes, clickstreams, and other sources",
+                            " Led supervised learning model to predict future worker performance based on their current experience",
 
                             " Developed proof of concept of volume forecasting models for capacity management across diverse client scenarios",
-
-                            " Conducted exploratory data analysis to identify instances of extra objects created, missed objects, unmoved objects, and deleted objects, utilizing one of the new ground truths in the LiDAR Project",
 
                             " Utilized Streamlit to create interactive dashboards, providing users with access to data insights and visualizations",
 
                             " Participated in ad hoc analysis for the experiment conducted, playing a key role in generating and interpreting the outcome results to drive data-driven decision-making processes and inform future strategies",
 
-                            " Established and documented seamless data pipelines, enabling streamlined data flow from multiple sources to Snowflake for analytical purposes",
-
                             " Conducted knowledge sessions on AI for the engineering team as well as external stakeholders, sharing insights and best practices to enhance understanding and adoption of AI technologies both within and outside the company",
 
                             " Collaborated with cross-functional teams, including data engineers, business analysts, and product managers, to identify business problems, design analytics solutions, and communicate findings."
+                ],
+            }
+           
+        ],
+    },
+
+    {
+        title: "",
+        category: "vl",
+        experiences: [
+            {
+                experienceTitle: "Visiting Lecturer of Data Structure and Algorithm", // Add a unique title for each experience
+                date: "April 2024 - Current",
+                description: [
+
+                            " Developed the curriculum for the Data Structures and Algorithms course for second-semester Bachelor of Science in Information Technology (B.Sc.IT) students",
+
+                            " Currently teaching over 50 second-semester B.Sc.IT students and evaluating student progress through exams, projects, and continuous assessments.",
                 ],
             }
            

@@ -4,7 +4,7 @@ const servicesData = [
         category: "ds",
         experiences: [
             {
-                experienceTitle: "Associate Data Scientist", // Add a unique title for each experience
+                experienceTitle: "Associate Data Scientist", 
                 date: "Aug 2022 - Current",
                 description: [
 
@@ -13,8 +13,6 @@ const servicesData = [
                             " Led supervised learning model to predict future worker performance based on their current experience",
 
                             " Developed proof of concept of volume forecasting models for capacity management across diverse client scenarios",
-
-                            " Utilized Streamlit to create interactive dashboards, providing users with access to data insights and visualizations",
 
                             " Participated in ad hoc analysis for the experiment conducted, playing a key role in generating and interpreting the outcome results to drive data-driven decision-making processes and inform future strategies",
 

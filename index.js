@@ -120,7 +120,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 const currentYear = new Date().getFullYear();
     const copyrightElement = document.getElementById("copyright");
-    copyrightElement.innerHTML = `${currentYear} Karmacharya &copy; All Rights Reserved`;
+    copyrightElement.innerHTML = `${currentYear} Karmacharya &copy; All Rights Reserved: Revised on July 2024`;
 
 
 const indexPage = document.getElementById('index-page');

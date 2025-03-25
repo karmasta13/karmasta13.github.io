@@ -14,7 +14,7 @@ const servicesData = [
                     "Evaluate assignments and provide detailed feedback to drive continuous improvement in student performance",
                     "Contribute to curriculum refinement based on student engagement and learning outcomes"
                 ],
-                technologies: ['Python', 'Data Analysis', 'Dashboard Development', 'Educational Technology', 'International Development']
+                technologies: ['Python', 'Data Analysis', 'Dashboard Development']
             }
         ],
         icon: "uil-microscope"
@@ -34,7 +34,7 @@ const servicesData = [
                     "Developed innovative teaching methodologies to enhance student engagement and knowledge retention",
                     "Mentored students on individual projects, providing guidance on research methodologies and technical implementation"
                 ],
-                technologies: ['Hadoop', 'Spark', 'Data Mining Algorithms', 'NoSQL Databases', 'Machine Learning', 'Big Data Technologies']
+                technologies: ['Hadoop', 'Data Mining Algorithms', 'Big Data Technologies']
             }
         ],
         icon: "uil-graduation-cap"

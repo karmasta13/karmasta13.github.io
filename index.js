@@ -71,12 +71,12 @@ document.head.insertAdjacentHTML('beforeend', `
     
     .tech-tag {
       display: inline-block;
-      padding: 0.3rem 0.8rem;
+      padding: 0.3rem 1rem;
       background: var(--color-gray-200);
       border-radius: 20px;
       font-size: 0.75rem;
       font-weight: 500;
-      color: var(--color-gray-700);
+      color: var(--color-gray-600);
       transition: var(--transition);
     }
     

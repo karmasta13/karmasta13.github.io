@@ -27,6 +27,9 @@
         <div class="loading-spinner"></div>
     </div>
 
+    <div class="scroll-progress"></div>
+
+
 
 
 
@@ -46,8 +49,11 @@
                 <li><a href="#contacts">Contacts</a></li>
 
             </ul>
-            <div class="nav__buttons" style="margin-top: 1rem;">
-                <button class="nav__theme-btn" style="margin-top: 5px;"><i class="uil uil-moon"></i></button>
+            <div class="nav__buttons">
+                <button class="nav__theme-btn">
+                    <i class="uil uil-moon"></i>
+                    <i class="uil uil-sun"></i>
+                </button>
                 <button class="nav__toggle-open"><i class="uil uil-bars"></i></button>
                 <button class="nav__toggle-close"><i class="uil uil-multiply"></i></button>
             </div>
@@ -87,7 +93,7 @@
 
     <!------ END of HEADER ----->
 
-    <section class="about" id="about">
+    <section class="about fade-in" id="about">
         <div class="container about__container">
             <div class="about__image">
                 <img src="./assets/header.png" alt="About Image">
@@ -121,16 +127,16 @@
                     unlocking a brighter future, I'm dedicated to doing my part to make that future a reality.
                 </p>
                 <p>
-                    <li>👩‍💻&nbsp; Currently working as an Associate Data Scientist at <a
-                            href="https://www.cloudfactory.com/" target="_blank"><span
-                                style="color: rgb(245, 171, 50);"><b>CloudFactory</b></span></a> and visiting lecturer at <b> Apex college</b></li>
+                    <li>👩‍💻&nbsp; Currently working as Data Scientist and Research Associate at <a
+                            href="https://www.equitechfutures.com/" target="_blank"><span
+                                style="color: rgb(245, 171, 50);"><b>Equitech Futures</b></span></a> and lecturer and module leader at <b> Islington college</b></li>
+                                <li>🌟&nbsp; Founder of the project <b>Digital Kala</b> Nepal which works to bridge the digital divide</li>            
                     <li>💬&nbsp; Let's brainstorm over tech, algorithms, career, and music</li>
-                    <li>🌟&nbsp; Founder of the project <b>Digital Kala</b> Nepal which works to bridge the digital divide</li>
                     <li>⚡&nbsp; Fun fact: I'm a bookholic and I've lost count of how many bookmarks I own </li>
 
                 </p>
 
-                <a href="./assets/CV.pdf" class="btn primary" target="_blank"> <i
+                <a href="./assets/git_cv.pdf" class="btn primary" target="_blank"> <i
                         class="uil uil-download-alt"></i>Download CV</a>
             </div>
         </div>
@@ -141,58 +147,150 @@
 
     <!------ END of About ----->
 
-    <section class="experience" id="experience">
-        <h1>Experiences</h1>
-        <h4 style="text-align: center; margin-top: 1rem; color: rgb(245, 171, 50);">Roles that have shaped my expertise.
-        </h4>
-        <div class="container services__container">
-            <ui class="services__left">
-                <li class="service__item ds active">
-                    <span><i class="uil uil-angle-right-b"></i></span>
-                    <div>
-                        <h3>CloudFactory</h3>
-                        <small>2022 - Current</small>
-                    </div>
-                </li>
+    <!------ Skills ----->
 
-                <li class="service__item vl">
-                    <span><i class="uil uil-angle-right-b"></i></span>
-                    <div>
-                        <h3>Apex College</h3>
-                        <small>2024 - Current</small>
-                    </div>
-                </li>
-
-                <li class="service__item da">
-                    <span><i class="uil uil-angle-right-b"></i></span>
-                    <div>
-                        <h3>Xabit Analytics</h3>
-                        <small>2021 - 2022</small>
-                    </div>
-                </li>
-
-                <li class="service__item design">
-                    <span><i class="uil uil-angle-right-b"></i></span>
-                    <div>
-                        <h3>Code Rush</h3>
-                        <small>2022 </small>
-                    </div>
-                </li>
-
-                <li class="service__item intern">
-                    <span><i class="uil uil-angle-right-b"></i></span>
-                    <div>
-                        <h3>Women LEAD Nepal</h3>
-                        <small>2019 - 2021</small>
-                    </div>
-                </li>
-
-
-            </ui>
-            <article class="services__right">
-            </article>
+<!-- <section class="skills" id="skills">
+    <h1>My Skills</h1>
+    <h4 style="text-align: center; margin-top: 1rem; color: rgb(245, 171, 50);">What I bring to the table</h4>
+    
+    <div class="container skills__container">
+      <div class="skills__category">
+        <h3>Data Science</h3>
+        <div class="skills__list">
+          <div class="skill">
+            <div class="skill__name">Python</div>
+            <div class="skill__bar">
+              <div class="skill__progress" data-progress="92%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__name">Machine Learning</div>
+            <div class="skill__bar">
+              <div class="skill__progress" data-progress="85%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__name">Data Visualization</div>
+            <div class="skill__bar">
+              <div class="skill__progress" data-progress="88%"></div>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+      
+      <div class="skills__category">
+        <h3>Web Development</h3>
+        <div class="skills__list">
+          <div class="skill">
+            <div class="skill__name">HTML/CSS</div>
+            <div class="skill__bar">
+              <div class="skill__progress" data-progress="80%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__name">JavaScript</div>
+            <div class="skill__bar">
+              <div class="skill__progress" data-progress="75%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="skills__category">
+        <h3>Tools & Frameworks</h3>
+        <div class="skills__list">
+          <div class="skill">
+            <div class="skill__name">TensorFlow/PyTorch</div>
+            <div class="skill__bar">
+              <div class="skill__progress" data-progress="82%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__name">SQL</div>
+            <div class="skill__bar">
+              <div class="skill__progress" data-progress="90%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+    <!--- End of Skills-->
+
+
+
+    <!------ Experience ----->
+
+    <!-- Enhanced Experience Section Structure -->
+<section class="experience fade-in" id="experience">
+    <h1>Professional Journey</h1>
+    <h4 style="text-align: center; margin-top: 1rem; color: rgb(245, 171, 50);">Roles that have shaped my expertise</h4>
+    <div class="container services__container">
+      <ul class="services__left">
+
+        <li class="service__item rf active">
+            <div>
+              <h3>Equitech Futures</h3>
+              <small>2024 - Present</small>
+            </div>
+          </li>
+          
+          <li class="service__item ml">
+            <div>
+              <h3>Islington College</h3>
+              <small>2024 - Present</small>
+            </div>
+          </li>
+          
+          <!-- <li class="service__item dk">
+            <div>
+              <h3>Digital Kala</h3>
+              <small>2023 - Present</small>
+            </div>
+          </li> -->
+
+        <li class="service__item ds">
+          <div>
+            <h3>CloudFactory</h3>
+            <small>2022 - 2024</small>
+          </div>
+        </li>
+  
+        
+
+        <li class="service__item vl">
+            <div>
+              <h3>Apex College</h3>
+              <small>2024 - 2024</small>
+            </div>
+          </li>
+  
+        <li class="service__item da">
+          <div>
+            <h3>Xabit Analytics</h3>
+            <small>2021 - 2022</small>
+          </div>
+        </li>
+  
+        <li class="service__item design">
+          <div>
+            <h3>Code Rush</h3>
+            <small>2022</small>
+          </div>
+        </li>
+  
+        <li class="service__item intern">
+          <div>
+            <h3>Women LEAD Nepal</h3>
+            <small>2019 - 2021</small>
+          </div>
+        </li>
+      </ul>
+      <article class="services__right">
+        <!-- Content will be populated by JavaScript -->
+      </article>
+    </div>
+  </section>
 
     <!------ END of Experience ----->
 

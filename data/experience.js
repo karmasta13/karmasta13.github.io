@@ -180,11 +180,11 @@ const servicesData = [
         icon: "uil-users-alt"
     },
     {
-        title: "Digital Kala",
+        title: "Co-Founder",
         category: "dk",
         experiences: [
             {
-                experienceTitle: "Founder & Project Lead",
+                experienceTitle: "Digital Kala ",
                 companyLink: "https://www.instagram.com/digitalkala.nepal/",
                 date: "Aug 2023 - Present",
                 description: [

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .admin-header {
+            background: linear-gradient(135deg, #f5c542, #f5a623);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .admin-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .admin-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .admin-nav {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-tab.active {
+            background: #f5c542;
+            border-color: #f5c542;
+            color: white;
+        }
+
+        .nav-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .admin-content {
+            padding: 30px;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f5c542;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #f5c542;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #f5c542, #f5a623);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 197, 66, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+        }
+
+        .btn-success {
+            background: #28a745;
+        }
+
+        .item-list {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .item-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #f5c542;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .item-card h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .item-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .help-text {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .help-text h4 {
+            color: #1976d2;
+            margin-bottom: 8px;
+        }
+
+        .help-text p {
+            color: #1565c0;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .admin-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-cog"></i> Portfolio Admin Panel</h1>
+            <p>Edit your portfolio content easily and efficiently</p>
+        </div>
+
+        <div class="admin-nav">
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-tab="personal">
+                    <i class="fas fa-user"></i> Personal Info
+                </div>
+                <div class="nav-tab" data-tab="projects">
+                    <i class="fas fa-folder"></i> Projects
+                </div>
+                <div class="nav-tab" data-tab="achievements">
+                    <i class="fas fa-trophy"></i> Achievements
+                </div>
+                <div class="nav-tab" data-tab="experience">
+                    <i class="fas fa-briefcase"></i> Experience
+                </div>
+                <div class="nav-tab" data-tab="help">
+                    <i class="fas fa-question-circle"></i> Help
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-content">
+            <!-- Personal Information Section -->
+            <div class="content-section active" id="personal">
+                <h2 class="section-title">Personal Information</h2>
+                
+                <div class="help-text">
+                    <h4><i class="fas fa-info-circle"></i> Quick Tip</h4>
+                    <p>Edit your basic information, contact details, and about section here. Changes will appear on your portfolio immediately.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Professional Title</label>
+                    <input type="text" id="title" placeholder="e.g., Data Scientist & Researcher">
+                </div>
+
+                <div class="form-group">
+                    <label for="subtitle">Subtitle</label>
+                    <input type="text" id="subtitle" placeholder="e.g., I build things from data">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="about">About Description</label>
+                    <textarea id="about" placeholder="Tell people about yourself..."></textarea>
+                </div>
+
+                <button class="btn" onclick="savePersonalInfo()">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="content-section" id="projects">
+                <h2 class="section-title">Projects Management</h2>
+                
+                <div class="help-text">
+                    <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
+                    <p>Add your projects here. Use high-quality images (800x600px) and keep descriptions concise. Featured projects will be highlighted.</p>
+                </div>
+
+                <button class="btn btn-success" onclick="addNewProject()">
+                    <i class="fas fa-plus"></i> Add New Project
+                </button>
+
+                <div class="item-list" id="projects-list">
+                    <!-- Projects will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Achievements Section -->
+            <div class="content-section" id="achievements">
+                <h2 class="section-title">Achievements & Recognition</h2>
+                
+                <div class="help-text">
+                    <h4><i class="fas fa-star"></i> Achievement Tips</h4>
+                    <p>Showcase your awards, certifications, and recognitions. Include dates, organizations, and brief descriptions of your accomplishments.</p>
+                </div>
+
+                <button class="btn btn-success" onclick="addNewAchievement()">
+                    <i class="fas fa-plus"></i> Add New Achievement
+                </button>
+
+                <div class="item-list" id="achievements-list">
+                    <!-- Achievements will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="content-section" id="experience">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="help-text">
+                    <h4><i class="fas fa-briefcase"></i> Experience Guidelines</h4>
+                    <p>Manage your professional experience. Include current and past roles with detailed descriptions and technologies used.</p>
+                </div>
+
+                <button class="btn btn-success" onclick="addNewExperience()">
+                    <i class="fas fa-plus"></i> Add New Experience
+                </button>
+
+                <div class="item-list" id="experience-list">
+                    <!-- Experience will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Help Section -->
+            <div class="content-section" id="help">
+                <h2 class="section-title">Help & Documentation</h2>
+                
+                <div class="help-text">
+                    <h4><i class="fas fa-book"></i> Getting Started</h4>
+                    <p>This admin panel makes it easy to edit your portfolio without touching code. All changes are saved to data files automatically.</p>
+                </div>
+
+                <div class="item-card">
+                    <h4><i class="fas fa-file-alt"></i> Data Files Location</h4>
+                    <p>All your content is stored in the <code>data/</code> folder:</p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li><code>personal-info.js</code> - Your basic information</li>
+                        <li><code>projects.js</code> - All your projects</li>
+                        <li><code>achievements.js</code> - Awards and recognition</li>
+                        <li><code>experience.js</code> - Professional experience</li>
+                    </ul>
+                </div>
+
+                <div class="item-card">
+                    <h4><i class="fas fa-images"></i> Image Guidelines</h4>
+                    <p>For best results, use images with these specifications:</p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Project images: 800x600px</li>
+                        <li>Profile image: 400x400px</li>
+                        <li>Format: PNG or JPG</li>
+                        <li>File size: Under 500KB</li>
+                    </ul>
+                </div>
+
+                <div class="item-card">
+                    <h4><i class="fas fa-mobile-alt"></i> Responsive Design</h4>
+                    <p>Your portfolio automatically adapts to all devices. No additional configuration needed!</p>
+                </div>
+
+                <div class="item-card">
+                    <h4><i class="fas fa-rocket"></i> Publishing</h4>
+                    <p>After making changes, simply refresh your browser to see updates. For live deployment, push changes to your GitHub repository.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and sections
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding section
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Placeholder functions for admin functionality
+        function savePersonalInfo() {
+            alert('Personal information saved! (This is a demo - implement actual save functionality)');
+        }
+
+        function addNewProject() {
+            alert('Add new project form would open here');
+        }
+
+        function addNewAchievement() {
+            alert('Add new achievement form would open here');
+        }
+
+        function addNewExperience() {
+            alert('Add new experience form would open here');
+        }
+
+        // Load existing data
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Admin panel loaded');
+            // Load existing data and populate forms
+        });
+    </script>
+</body>
+</html>

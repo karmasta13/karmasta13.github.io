@@ -1,63 +1,148 @@
-// Enhanced Experience Section JavaScript
-const servicesButtons = document.querySelectorAll('.service__item');
-const servicesDetails = document.querySelector('.services__right');
+// Professional Constellation JavaScript
+const constellationGrid = document.querySelector('.constellation-grid');
+const experienceModal = document.getElementById('experienceModal');
+const modalClose = document.getElementById('modalClose');
 
-const getServices = (category) => {
-    const details = servicesData.find(item => item.category === category);
+// Color mapping - only yellow for current roles, gray for past roles
+const getColorClass = (experience) => {
+  return experience.date.includes('Present') ? 'yellow' : 'gray';
+};
+
+// Create constellation cards
+const createConstellationCards = () => {
+  constellationGrid.innerHTML = '';
+  
+  // Flatten all experiences into individual cards
+  const allExperiences = [];
+  
+  servicesData.forEach((service, serviceIndex) => {
+    service.experiences.forEach(experience => {
+      allExperiences.push({
+        ...experience,
+        serviceTitle: service.title,
+        serviceIndex,
+        category: service.category,
+        colorClass: getColorClass(experience)
+      });
+    });
+  });
+  
+  // Sort all experiences by date (newest first)
+  const sortedExperiences = allExperiences.sort((a, b) => {
+    const getDateValue = (dateStr) => {
+      if (dateStr.includes('Present')) return new Date('2099-12-31'); // Current roles first
+      const parts = dateStr.split(' - ');
+      return new Date(parts[0]);
+    };
     
-    // Fade out current content
-    servicesDetails.style.opacity = '0';
-    servicesDetails.style.transform = 'translateX(20px)';
+    const aDate = getDateValue(a.date);
+    const bDate = getDateValue(b.date);
+    return bDate - aDate; // Newest first
+  });
+  
+  // Create cards for each experience
+  sortedExperiences.forEach((experience, index) => {
+    const card = document.createElement('div');
+    card.className = 'experience-card';
+    card.setAttribute('data-category', experience.category);
     
-    setTimeout(() => {
-      // Create Experience HTML
-      const experienceHTML = details.experiences.map(experience => `
-        <div class="experience__content">
-          <h3>${details.title} ${experience.experienceTitle}
-            <a href="${experience.companyLink}" target="_blank" class="company-link">
-              <i class="uil uil-external-link-alt"></i>
-            </a>
-          </h3>
-          <h5>${experience.date}</h5>
-          <ul>
-            ${experience.description.map(item => `
-              <li><i class="uil uil-check-circle experience-icon"></i>${item}</li>
-            `).join('')}
-          </ul>
-          
-          <div class="experience__technologies">
-            ${experience.technologies.map(tech => `
-              <span class="tech-tag">${tech}</span>
-            `).join('')}
-          </div>
+    const isCurrent = experience.date.includes('Present');
+    const companyName = experience.experienceTitle.replace('@ ', '');
+    
+    card.innerHTML = `
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-icon ${experience.colorClass}"></div>
+          <h3 class="role-name">${experience.serviceTitle}</h3>
+          <span class="role-number">#${index + 1}</span>
+          ${isCurrent ? '<i class="uil uil-star star-icon"></i>' : ''}
         </div>
-      `).join('');
-      
-      servicesDetails.innerHTML = experienceHTML;
-      
-      // Fade in new content
-      servicesDetails.style.opacity = '1';
-      servicesDetails.style.transform = 'translateX(0)';
-    }, 300);
-  };
-
-const removeActiveClass = () => {
-  servicesButtons.forEach(button => {
-    button.classList.remove('active');
+      </div>
+      <h4 class="company-name">${companyName}</h4>
+      <p class="experience-date">${experience.date}</p>
+    `;
+    
+    // Set CSS custom property for rotation
+    const rotations = [-1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1];
+    card.style.setProperty('--card-rotation', `${rotations[index]}deg`);
+    
+    // Add click event to open modal
+    card.addEventListener('click', () => {
+      openExperienceModal(experience, experience, experience.colorClass);
+    });
+    
+    constellationGrid.appendChild(card);
   });
 };
 
-servicesButtons.forEach(item => {
-  item.addEventListener('click', () => {
-    removeActiveClass();
-    const serviceClass = item.classList[1];
-    getServices(serviceClass);
-    item.classList.add('active');
+// Open experience modal
+const openExperienceModal = (experience, primaryExperience, colorClass) => {
+  const modal = experienceModal;
+  const isCurrent = experience.date.includes('Present');
+  
+  // Update modal content
+  modal.querySelector('.role-icon').className = `role-icon ${colorClass}`;
+  modal.querySelector('.role-title').textContent = experience.serviceTitle;
+  modal.querySelector('.current-badge').style.display = isCurrent ? 'inline-block' : 'none';
+  modal.querySelector('.company-name').textContent = experience.experienceTitle.replace('@ ', '');
+  modal.querySelector('.date').textContent = experience.date;
+  modal.querySelector('.company-link').href = experience.companyLink;
+  
+  // Create role summary (first description item)
+  const summary = experience.description[0] || 'Leading initiatives in data science and technology solutions.';
+  modal.querySelector('.summary-text').textContent = summary;
+  
+  // Update achievements list
+  const achievementsList = modal.querySelector('.achievements-list');
+  achievementsList.innerHTML = '';
+  
+  experience.description.forEach(achievement => {
+    const li = document.createElement('li');
+    li.textContent = achievement;
+    achievementsList.appendChild(li);
   });
+  
+  // Update skills
+  const skillsContainer = modal.querySelector('.skills-container');
+  skillsContainer.innerHTML = '';
+  
+  experience.technologies.forEach(skill => {
+    const tag = document.createElement('span');
+    tag.className = 'skill-tag';
+    tag.textContent = skill;
+    skillsContainer.appendChild(tag);
+  });
+  
+  // Show modal
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+// Close modal
+const closeModal = () => {
+  experienceModal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+};
+
+// Event listeners
+modalClose.addEventListener('click', closeModal);
+experienceModal.addEventListener('click', (e) => {
+  if (e.target === experienceModal) {
+    closeModal();
+  }
 });
 
-// Initialize with the first experience
-getServices('ds');
+// Close modal on escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && experienceModal.classList.contains('active')) {
+    closeModal();
+  }
+});
+
+// Initialize constellation
+document.addEventListener('DOMContentLoaded', () => {
+  createConstellationCards();
+});
 
 // Add CSS for the technology tags
 document.head.insertAdjacentHTML('beforeend', `
@@ -146,6 +231,17 @@ var mixer = mixitup(containerEl, {
 
 mixer.filter('*');
 
+// Project category filter interactions
+const categoryControls = document.querySelectorAll('.projects__categories li');
+categoryControls.forEach(control => {
+  control.addEventListener('click', () => {
+    const selector = control.getAttribute('data-filter');
+    categoryControls.forEach(c => c.classList.remove('mixitup-control-active'));
+    control.classList.add('mixitup-control-active');
+    mixer.filter(selector);
+  });
+});
+
 
 
 /// ---------- toggle --------------
@@ -185,16 +281,33 @@ if(window.innerWidth < 768){
 
 document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.querySelector('.nav__theme-btn');
+
+    const getPreferredTheme = () => {
+      const stored = localStorage.getItem('theme');
+      if (stored === 'light' || stored === 'dark') return stored;
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return prefersDark ? 'dark' : 'light';
+    };
+
+    const applyTheme = (theme) => {
+      document.body.classList.toggle('dark', theme === 'dark');
+    };
+
+    // Initialize theme
+    applyTheme(getPreferredTheme());
+
+    // Toggle theme
     themeBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
+      const next = document.body.classList.contains('dark') ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('theme', next);
     });
 
-    // Add loading overlay for 2 seconds
+    // Loading overlay: hide once DOM is ready
     const loadingOverlay = document.getElementById('loading-overlay');
-    setTimeout(() => {
-        loadingOverlay.style.display = 'none'; 
-        document.body.classList.add('dark'); 
-    }, 0); 
+    if (loadingOverlay) {
+      loadingOverlay.style.display = 'none';
+    }
 });
 
 
@@ -304,13 +417,37 @@ fadeElements.forEach(element => {
 
 
 
-// Add this to your JavaScript
-window.addEventListener('scroll', () => {
-    const scrollProgress = document.querySelector('.scroll-progress');
-    const totalHeight = document.body.scrollHeight - window.innerHeight;
-    const progress = (window.scrollY / totalHeight) * 100;
-    scrollProgress.style.width = `${progress}%`;
+// Scroll progress ring functionality
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+const progressRing = document.querySelector('.progress-ring-circle');
+
+if (scrollTopBtn && progressRing) {
+  // Show/hide button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.classList.add('show');
+    } else {
+      scrollTopBtn.classList.remove('show');
+    }
+
+    // Update progress ring
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.body.offsetHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    const circumference = 125.6; // 2 * π * 20 = 125.6
+    const offset = circumference - (scrollPercent / 100) * circumference;
+    
+    progressRing.style.strokeDashoffset = offset;
   });
+
+  // Scroll to top functionality
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
 
   // Animate timeline connector
 const animateTimelineConnector = () => {

@@ -27,8 +27,8 @@ class ContentLoader {
       await this.loadScript('data/achievements.js');
       this.achievementsData = achievementsData;
 
-      // Load experience data (already exists)
-      await this.loadScript('data.js');
+      // Load experience data
+      await this.loadScript('data/experience.js');
       this.experienceData = servicesData;
 
       console.log('✅ All data loaded successfully');

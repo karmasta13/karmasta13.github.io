@@ -157,10 +157,6 @@ app.delete('/api/files/:filename', async (req, res) => {
   }
 });
 
-// Serve admin panel
-app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'admin.html'));
-});
 
 // Serve main portfolio
 app.get('/', (req, res) => {
@@ -180,7 +176,6 @@ app.use((error, req, res, next) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Portfolio server running on http://localhost:${PORT}`);
-  console.log(`📝 Admin panel available at http://localhost:${PORT}/admin`);
   console.log(`🌐 Portfolio available at http://localhost:${PORT}`);
 });
 

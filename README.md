@@ -26,7 +26,6 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Fea
 ```
 portfolio/
 ├── index.html              # Main portfolio page
-├── admin.html              # Admin panel for easy editing
 ├── style.css               # Main stylesheet
 ├── index.js                # Main JavaScript functionality
 ├── data/                   # Content data files
@@ -67,17 +66,12 @@ portfolio/
    ```
 
 3. **Start editing**
-   - Open `admin.html` for easy editing
+   - Edit files in the `data/` folder directly
    - Or edit files in the `data/` folder directly
 
 ## 📝 Editing Content
 
-### Method 1: Admin Panel (Recommended)
-1. Open `admin.html` in your browser
-2. Use the intuitive interface to edit content
-3. Save changes and refresh your portfolio
-
-### Method 2: Direct File Editing
+### Direct File Editing
 1. Edit files in the `data/` folder
 2. Update `data/personal-info.js` for basic info
 3. Modify `data/projects.js` for projects
@@ -206,7 +200,6 @@ No build process required - just upload files to your hosting provider.
 ## 📚 Documentation
 
 - [Editing Guide](EDITING_GUIDE.md) - How to edit content
-- [Admin Panel](admin.html) - Easy editing interface
 - [Data Structure](data/) - Content file formats
 
 ## 🤝 Contributing
@@ -225,7 +218,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 If you need help:
 1. Check the [Editing Guide](EDITING_GUIDE.md)
-2. Review the [Admin Panel](admin.html)
+2. Review the data files in the `data/` folder
 3. Open an issue on GitHub
 4. Contact: your@email.com
 

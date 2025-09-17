@@ -6,14 +6,14 @@
 const projectsData = [
   {
     id: 1,
-    title: "PureAcrazy Project",
-    description: "An innovative data science project that reached the finalist stage at Rhodes House, showcasing cutting-edge solutions and impactful research in our field.",
+    title: "Chess Engine (MinMax Algo)",
+    description: "As someone who had no idea on chess, I needed a partner to learn it. What better partner than the AI? So, I taught computer to play chess  and in the same way learned it with it.",
     image: "./assets/project1.png",
     category: "data-science",
     technologies: ["Python", "Machine Learning", "Data Analysis", "Research"],
     links: {
-      github: "https://github.com/karmasta13/pureacrazy",
-      live: "https://pureacrazy.com"
+      github: "https://github.com/karmasta13/academics-station/tree/main/Karmasta%20Music%20Store",
+      live: "https://github.com/karmasta13/academics-station/tree/main/Karmasta%20Music%20Store"
     },
     featured: true,
     order: 1
@@ -40,8 +40,8 @@ const projectsData = [
     category: "web",
     technologies: ["XML", "HTML", "CSS", "JavaScript"],
     links: {
-      github: "https://github.com/karmasta13",
-      live: "https://github.com/karmasta13"
+      github: "https://github.com/karmasta13/academics-station/tree/main/Karmasta%20Music%20Store",
+      live: "https://github.com/karmasta13/academics-station/tree/main/Karmasta%20Music%20Store"
     },
     featured: false,
     order: 3
@@ -54,58 +54,58 @@ const projectsData = [
     category: "web",
     technologies: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     links: {
-      github: "https://github.com/karmasta13",
-      live: "https://github.com/karmasta13"
+      github: "https://github.com/karmasta13/academics-station/tree/main/berkeley",
+      live: "https://github.com/karmasta13/academics-station/tree/main/berkeley"
     },
     featured: false,
     order: 4
   },
   {
     id: 5,
-    title: "Data Analysis Dashboard",
-    description: "A comprehensive dashboard for analyzing business metrics and KPIs with interactive visualizations and real-time data processing capabilities.",
+    title: "66 Days of Data",
+    description: "66 Days of Data journey - a personal challenge inspired by Ken Jee to establish great data science habits through daily practice and sharing my work.",
     image: "./assets/project5.png",
     category: "data-science",
-    technologies: ["Python", "Django", "Chart.js", "PostgreSQL"],
+    technologies: ["Python", "Data Science", "Data Analysis", "Data Visualization"],
     links: {
-      github: "https://github.com/karmasta13",
-      live: "https://github.com/karmasta13"
+      github: "https://github.com/karmasta13/Learning-Station/tree/main/66-days-of-data",
+      live: "https://github.com/karmasta13/Learning-Station/tree/main/66-days-of-data"
     },
     featured: true,
     order: 5
   },
   {
     id: 6,
-    title: "Machine Learning Model",
-    description: "Advanced machine learning model for predictive analytics with high accuracy and real-time processing capabilities.",
+    title: "Certification Station",
+    description: "A platform where I park my bragging rights, safely stored for future reference and spontaneous show-and-tell sessions. Welcome to the station where my  certificates catch the spotlight.",
     image: "./assets/project6.png",
     category: "data-science",
     technologies: ["Python", "Scikit-learn", "TensorFlow", "Pandas"],
     links: {
-      github: "https://github.com/karmasta13",
-      live: "https://github.com/karmasta13"
+      github: "https://github.com/karmasta13/certificates-station",
+      live: "https://github.com/karmasta13/certificates-station"
     },
     featured: false,
     order: 6
   },
   {
     id: 7,
-    title: "E-commerce Platform",
-    description: "Full-stack e-commerce solution with user authentication, payment integration, and inventory management.",
+    title: "Data Science Station",
+    description: "A space where I dump all my ongoing data science experiments from analysis, recommendation engine, visualizations that have yet to be deployed.",
     image: "./assets/project7.png",
     category: "web",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe API"],
+    technologies: ["Python", "NLP", "Transformers", "Streamlit"],
     links: {
-      github: "https://github.com/karmasta13",
-      live: "https://github.com/karmasta13"
+      github: "https://github.com/karmasta13/data-science-station",
+      live: "https://github.com/karmasta13/data-science-station"
     },
     featured: false,
     order: 7
   },
   {
     id: 8,
-    title: "Research Paper Analysis Tool",
-    description: "AI-powered tool for analyzing research papers and extracting key insights using natural language processing.",
+    title: "Pyenv Cheatsheet",
+    description: "A space for organizing and documenting diverse Python environment experiments using pyenv, encompassing version control, activation, and experimentation with ongoing data science projects.",
     image: "./assets/project8.png",
     category: "data-science",
     technologies: ["Python", "NLP", "Transformers", "Streamlit"],
@@ -118,56 +118,56 @@ const projectsData = [
   },
   {
     id: 9,
-    title: "Portfolio Website",
-    description: "Responsive portfolio website built with modern web technologies and optimized for performance.",
+    title: "Git Cheatsheet",
+    description: "A space for storing essential commands for version control, enabling efficient tracking, branching, merging, and collaboration in the projects.",
     image: "./assets/project9.png",
     category: "web",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    technologies: ["Git", "GitHub", "Version Control", "Collaboration"],
     links: {
-      github: "https://github.com/karmasta13",
-      live: "https://karmasta13.github.io"
+      github: "https://github.com/karmasta13/cheatsheet/blob/main/git.md",
+      live: "https://github.com/karmasta13/cheatsheet/blob/main/git.md"
     },
     featured: false,
     order: 9
   },
   {
     id: 10,
-    title: "Data Visualization App",
-    description: "Interactive data visualization application with multiple chart types and export capabilities.",
+    title: "Insider Threat Detection Review",
+    description: "I conducted a comprehensive review of the paper and subsequently created a concise presentation summarizing its key findings.",
     image: "./assets/project10.png",
     category: "data-science",
-    technologies: ["D3.js", "React", "Python", "Flask"],
+    technologies: ["Python", "NLP", "Transformers", "Streamlit"],
     links: {
-      github: "https://github.com/karmasta13",
-      live: "https://github.com/karmasta13"
+      github: "https://github.com/karmasta13/karmasta13.github.io/blob/main/assets/Paper%20Exploration/Paper%20Exploration-%20Insider%20Threat%20Detection%20Based%20on%20Users%E2%80%99%20Mouse%20Movements%20and%20Keystrokes%20Behavior%20.pdf",
+      live: "https://github.com/karmasta13/karmasta13.github.io/blob/main/assets/Paper%20Exploration/Paper%20Exploration-%20Insider%20Threat%20Detection%20Based%20on%20Users%E2%80%99%20Mouse%20Movements%20and%20Keystrokes%20Behavior%20.pdf"
     },
     featured: false,
     order: 10
   },
   {
     id: 11,
-    title: "Mobile App Development",
-    description: "Cross-platform mobile application with offline capabilities and real-time synchronization.",
+    title: "IoT with ESP32 Guide",
+    description: "This document serves as a foundational resource for individuals eager to learn about Internet of Things (IoT) using the ESP32 microcontroller.",
     image: "./assets/project11.png",
     category: "mobile",
-    technologies: ["React Native", "Firebase", "Redux", "JavaScript"],
+    technologies: ["ESP32", "IoT", "Arduino", "Python"],
     links: {
-      github: "https://github.com/karmasta13",
-      live: "https://github.com/karmasta13"
+      github: "https://github.com/karmasta13/iot-station/blob/main/Beginner%20Guide%20Docs/A%20beginner%E2%80%99s%20guide%20to%20IoT%20with%20ESP32.md",
+      live: "https://github.com/karmasta13/iot-station/blob/main/Beginner%20Guide%20Docs/A%20beginner%E2%80%99s%20guide%20to%20IoT%20with%20ESP32.md"
     },
     featured: false,
     order: 11
   },
   {
     id: 12,
-    title: "Blockchain Project",
-    description: "Decentralized application built on blockchain technology with smart contract integration.",
+    title: "HERstory Amplified",
+    description: "Through this article, I aim to highlight the remarkable contributions of women in the fields of science and technology, acknowledging their invaluable impact on society.",
     image: "./assets/project12.png",
     category: "blockchain",
-    technologies: ["Solidity", "Web3.js", "React", "Ethereum"],
+    technologies: ["Article", "Women in Science", "Technology"],
     links: {
-      github: "https://github.com/karmasta13",
-      live: "https://github.com/karmasta13"
+      github: "https://medium.com/@labbikarmacharya/herstory-amplified-0899b19afea6",
+      live: "https://medium.com/@labbikarmacharya/herstory-amplified-0899b19afea6"
     },
     featured: false,
     order: 12

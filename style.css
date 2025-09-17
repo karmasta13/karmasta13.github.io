@@ -33,21 +33,21 @@ html {
   --transition: all 300ms ease;
   --transition-theme: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Color System (Light as fallback) */
+  /* Color System (Light theme) */
   --color-primary: #ddaf32; /* Yellow */
-  --color-primary-light: rgba(245, 197, 66, 0.12);
-  --color-nav-bg: rgba(255, 255, 255, 0.4);
+  --color-primary-light: rgba(221, 175, 50, 0.12);
+  --color-nav-bg: rgba(255, 255, 255, 0.7);
 
-  /* Gray Scale */
-  --color-gray-100: #ffffff;
-  --color-gray-200: #f6f6f6;
-  --color-gray-300: #e5e5e5;
-  --color-gray-400: #c7c7c7;
-  --color-gray-500: #9e9e9e;
-  --color-gray-600: #6f6f6f;
-  --color-gray-700: #4b4b4b;
-  --color-gray-800: #2a2a2a;
-  --color-gray-900: #0f0f0f;
+  /* Gray Scale (improved light palette) */
+  --color-gray-100: #f9fafb; /* page background */
+  --color-gray-200: #f3f4f6; /* cards background */
+  --color-gray-300: #e5e7eb; /* borders */
+  --color-gray-400: #d1d5db; /* muted lines */
+  --color-gray-500: #9ca3af; /* disabled text */
+  --color-gray-600: #6b7280; /* secondary text */
+  --color-gray-700: #374151; /* headings */
+  --color-gray-800: #1f2937; /* body text */
+  --color-gray-900: #0b1220; /* strongest text */
 }
 
 /* Dark Mode Theme Variables */
@@ -508,12 +508,20 @@ header::after {
   -webkit-background-composite: border-box;
 }
 
+/* Ensure the inner wrapper fills the capsule so the image can align bottom */
+.header__image > div {
+  width: 100%;
+  height: 100%;
+}
+
 .header__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center bottom; /* push artwork to sit flush at the bottom */
   background: transparent;
   transform: scale(1);
+  display: block; /* remove inline image baseline whitespace */
   /* object-position: center 0.1cm; */
 }
 

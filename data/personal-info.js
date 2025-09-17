@@ -5,15 +5,14 @@
 
 const personalInfo = {
   // Basic Information
-  name: "Karmasta",
-  title: "Data Scientist & Researcher",
-  subtitle: "I build things from data",
+  name: "Labbi Karmacharya",
+  title: "Namaste, my name is",
+  subtitle: "I am a data scientist based in Kathmandu, Nepal. I have been working in this field for 4+ years.",
   location: "Kathmandu, Nepal",
   
   // Contact Information
   contact: {
-    email: "karmasta13@gmail.com",
-    phone: "+977-9841234567",
+    // email: "karmasta13@gmail.com",
     linkedin: "https://linkedin.com/in/karmasta13",
     github: "https://github.com/karmasta13",
     twitter: "https://twitter.com/karmasta13"

@@ -220,27 +220,7 @@ document.head.insertAdjacentHTML('beforeend', `
 
 
 /// ---------- mixitup --------------
-// CommonJS
-
-const containerEl = document.querySelector('.projects__container');
-var mixer = mixitup(containerEl, {
-    animation: {
-        enable:false
-    }
-});
-
-mixer.filter('*');
-
-// Project category filter interactions
-const categoryControls = document.querySelectorAll('.projects__categories li');
-categoryControls.forEach(control => {
-  control.addEventListener('click', () => {
-    const selector = control.getAttribute('data-filter');
-    categoryControls.forEach(c => c.classList.remove('mixitup-control-active'));
-    control.classList.add('mixitup-control-active');
-    mixer.filter(selector);
-  });
-});
+// MixItUp filtering removed as per request (no desktop/mobile filters)
 
 
 

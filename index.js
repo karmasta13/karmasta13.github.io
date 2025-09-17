@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const stored = localStorage.getItem('theme');
       if (stored === 'light' || stored === 'dark') return stored;
       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      return prefersDark ? 'dark' : 'light';
+      return prefersDark ? 'dark' : 'dark'; // Default to dark theme
     };
 
     const applyTheme = (theme) => {

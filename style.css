@@ -1199,6 +1199,8 @@ body:not(.dark) .about__details .btn:hover {
   list-style: none;
   padding: 0;
   margin: 0 0 2rem 0;
+  font-size: 0.8rem;
+
 }
 
 .achievements-list li {

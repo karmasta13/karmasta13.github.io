@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const getPreferredTheme = () => {
     const stored = localStorage.getItem('theme');
     if (stored === 'light' || stored === 'dark') return stored;
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return prefersDark ? 'dark' : 'light';
+    return 'dark';
   };
 
   const applyTheme = (theme) => {

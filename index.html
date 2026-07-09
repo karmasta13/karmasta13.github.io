@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Labbi Karmacharya is a civic technologist and data scientist from Nepal working at the intersection of technology, gender, and inclusion.">
-    <meta name="theme-color" content="#FAF8F5">
+    <meta name="theme-color" content="#14110E">
     <link rel="canonical" href="https://www.labbi.com.np/">
     <link rel="icon" href="./assets/favicon-avatar.png" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
@@ -58,7 +58,11 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body class="dark">
+    <script>
+        // Dark by default; honor an explicit light choice, avoid a flash of the wrong theme.
+        try { if (localStorage.getItem('theme') === 'light') document.body.classList.remove('dark'); } catch (e) {}
+    </script>
     <a href="#main" class="skip-link">Skip to content</a>
 
     <div class="scroll-progress" aria-hidden="true"></div>
@@ -67,7 +71,7 @@
     <nav>
         <div class="container nav__container">
             <a href="#top" class="nav__logo" aria-label="Home">
-                <img src="./assets/logo.png" alt="Labbi Karmacharya" loading="lazy">
+                <img src="./assets/profile.png" alt="Labbi Karmacharya">
             </a>
             <ul class="nav__menu">
                 <li><a href="#about">About</a></li>
@@ -721,7 +725,6 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer__container">
-            <p class="footer__note">Built in Kathmandu.</p>
             <ul class="footer__socials">
                 <li><a href="https://www.linkedin.com/in/labbi-karmacharya/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="uil uil-linkedin-alt"></i></a></li>
                 <li><a href="https://github.com/karmasta13" target="_blank" rel="noopener" aria-label="GitHub"><i class="uil uil-github-alt"></i></a></li>

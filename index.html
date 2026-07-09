@@ -4,461 +4,736 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/favicon1.png" type="image/png" sizes="64x64">
-    <title>Labbi Portfolio Website</title>
-    <!-- External Resources -->
+    <meta name="description" content="Labbi Karmacharya is a civic technologist and data scientist from Nepal working at the intersection of technology, gender, and inclusion.">
+    <meta name="theme-color" content="#FAF8F5">
+    <link rel="canonical" href="https://www.labbi.com.np/">
+    <link rel="icon" href="./assets/favicon-avatar.png" type="image/png" sizes="64x64">
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+    <title>Labbi Karmacharya — Civic Technologist & Data Scientist</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.labbi.com.np/">
+    <meta property="og:title" content="Labbi Karmacharya — Civic Technologist & Data Scientist">
+    <meta property="og:description" content="Civic technologist and data scientist from Nepal working at the intersection of technology, gender, and inclusion.">
+    <meta property="og:image" content="https://www.labbi.com.np/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Labbi Karmacharya — Civic Technologist & Data Scientist">
+    <meta name="twitter:description" content="Civic technologist and data scientist from Nepal working at the intersection of technology, gender, and inclusion.">
+    <meta name="twitter:image" content="https://www.labbi.com.np/assets/og-image.png">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Labbi Karmacharya",
+      "jobTitle": "Civic Technologist, Technical Data Architect, and Educator",
+      "url": "https://www.labbi.com.np/",
+      "email": "mailto:labbikarmacharya@gmail.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Lalitpur", "addressCountry": "Nepal" },
+      "sameAs": [
+        "https://www.linkedin.com/in/labbi-karmacharya/",
+        "https://github.com/karmasta13",
+        "https://medium.com/@labbikarmacharya"
+      ],
+      "worksFor": [
+        { "@type": "Organization", "name": "Bureaucrazy", "url": "https://www.bureaucrazy.co" },
+        { "@type": "Organization", "name": "Equitech Futures", "url": "https://www.equitechfutures.com/" },
+        { "@type": "Organization", "name": "Islington College", "url": "https://islington.edu.np/" }
+      ]
+    }
+    </script>
+
+    <!-- Fonts & icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;700;800&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <!-- Loading Overlay -->
-    <div id="loading-overlay" class="loading-overlay">
-        <div class="loading-spinner"></div>
-    </div>
+    <a href="#main" class="skip-link">Skip to content</a>
 
-    <div class="scroll-progress"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
 
     <!-- Navigation -->
     <nav>
         <div class="container nav__container">
-            <a href="index.html" class="nav__logo" aria-label="Home">
-                <img src="./assets/logo.png" alt="Navbar logo" loading="lazy">
+            <a href="#top" class="nav__logo" aria-label="Home">
+                <img src="./assets/logo.png" alt="Labbi Karmacharya" loading="lazy">
             </a>
             <ul class="nav__menu">
-                <li><a href="index.html">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experiences</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contacts">Contacts</a></li>
+                <li><a href="#speaking">Speaking</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav__buttons">
-                <button class="nav__theme-btn">
+                <button class="nav__theme-btn" aria-label="Toggle theme">
                     <i class="uil uil-moon"></i>
                     <i class="uil uil-sun"></i>
                 </button>
-                <button class="nav__toggle-open"><i class="uil uil-bars"></i></button>
-                <button class="nav__toggle-close"><i class="uil uil-multiply"></i></button>
+                <button class="nav__toggle-open" aria-label="Open menu"><i class="uil uil-bars"></i></button>
+                <button class="nav__toggle-close" aria-label="Close menu"><i class="uil uil-multiply"></i></button>
             </div>
         </div>
     </nav>
 
-    <!-- Header Section -->
-    <header>
-        <div class="container header__container">
-            <article class="header__image">
-                <div><img src="./assets/profile.png" alt="Header image"></div>
-            </article>
-            <article class="header__content">
-                <h4><span>Hi, my name is </span></h4>
-                <h1>Labbi Karmacharya</h1>
-                <h1><span>I build things from data </span></h1>
-                <p>I am a data scientist based in Kathmandu, Nepal. I have been working in this field for 4+ years.</p>
-                <div class="header__cta">
-                    <a href="mailto:labbikarmacharya@gmail.com" class="btn" target="_blank">Say Hello</a>
-                </div>
-            </article>
-            <ul class="header__socials">
-                <li><a href="https://github.com/karmasta13" target="_blank"><i class="uil uil-github-alt"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/labbi-karmacharya/" target="_blank"><i class="uil uil-linkedin-alt"></i></a></li>
-                <li><a href="https://medium.com/@labbikarmacharya" target="_blank"><i class="uil-medium-m"></i></a></li>
-                <li><a href="https://www.instagram.com/labbi.k" target="_blank"><i class="uil uil-instagram"></i></a></li>
-                <li><a href="https://unsplash.com/@karmasta" target="_blank"><i class="uil uil-camera"></i></a></li>
-            </ul>
-        </div>
-    </header>
+    <main id="main">
+        <span id="top"></span>
 
-    <!-- About Section -->
-    <section class="about fade-in" id="about">
-        <div class="container about__container">
-            <div class="about__image">
-                <img src="./assets/profile.png" alt="About Image">
-            </div>
-            <div class="about__details">
-                <h1>About me</h1>
-                <p>
-                    When it comes to data, I'm like a modern day Enola Holmes, always on the hunt for the story behind
-                    the numbers.
-                </p>
-                <p>
-                    When I'm not cracking codes in the world of data science, you can find me making a difference in the
-                    lives of young girls. From mentoring to volunteering, I believe that education is the key to
-                    unlocking a brighter future, I'm dedicated to doing my part to make that future a reality.
-                </p>
-                <p>
-                <ul>
-                    <li>👩‍💻&nbsp; Currently working as Data Scientist and Research Associate at <a href="https://www.equitechfutures.com/" target="_blank"><span style="color: rgb(245, 171, 50);"><b>Equitech Futures</b></span></a> and lecturer and module leader at <b>Islington college</b></li>
-                    <li>🌟&nbsp; Founder of the project <b>Digital Kala</b> Nepal which works to bridge the digital divide</li>
-                    <li>💬&nbsp; Let's brainstorm over tech, algorithms, career, and music</li>
-                    <li>⚡&nbsp; Fun fact: I'm a bookholic and I've lost count of how many bookmarks I own</li>
-                </ul>
-                </p>
-                <a href="./assets/git_cv.pdf" class="btn primary" target="_blank"><i class="uil uil-download-alt"></i>Download CV</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="experience fade-in" id="experience">
-        <h1>Professional Journey</h1>
-        <h4 style="text-align: center; margin-top: 1rem; color: rgb(152, 152, 150);">Roles that have shaped my expertise </h4>
-        
-        <!-- Timeline Legend
-        <div class="timeline-legend">
-            <span class="legend-dot current">● 2025</span>
-            <div class="legend-line"></div>
-            <span class="legend-dot past">● 2019</span>
-        </div> -->
-
-        <!-- Professional Constellation -->
-        <div class="constellation-container">
-            <div class="constellation-grid">
-                <!-- Experience cards will be populated by JavaScript -->
-            </div>
-        </div>
-
-        <!-- Experience Detail Modal -->
-        <div id="experienceModal" class="experience-modal">
-            <div class="modal-content">
-                <button class="modal-close" id="modalClose">&times;</button>
-                <div class="modal-header">
-                    <div class="role-info">
-                        <div class="role-icon"></div>
-                        <h2 class="role-title"></h2>
-                        <span class="current-badge" style="display: none;">Current</span>
+        <!-- Hero -->
+        <header class="hero" id="hero">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <p class="hero__greeting">नमस्ते, I am</p>
+                    <h1 class="hero__name">Labbi Karmacharya</h1>
+                    <p class="hero__role">Civic technologist, technical data architect, and educator</p>
+                    <p class="hero__tagline">
+                        I build tools that make complicated systems easier for ordinary people to deal
+                        with. My work sits where technology, gender, and inclusion meet, and it is about
+                        making public life accessible to everyone.
+                    </p>
+                    <div class="hero__cta">
+                        <a href="#contact" class="btn btn--primary">Get in touch</a>
+                        <button type="button" class="btn btn--ghost" data-open-cv>Request my CV</button>
                     </div>
                 </div>
-                <div class="modal-body">
-                    <div class="company-info">
-                        <h3 class="company-name"></h3>
-                        <div class="experience-details">
-                            <span class="date-info"><i class="uil uil-calendar-alt"></i><span class="date"></span></span>
-                            <span class="location-info"><i class="uil uil-map-marker"></i>Remote</span>
-                            <a href="#" class="company-link" target="_blank"><i class="uil uil-external-link-alt"></i>Visit Company</a>
+                <div class="hero__image">
+                    <div class="hero__image-block"></div>
+                    <img src="./assets/profile.png" alt="Portrait of Labbi Karmacharya" width="440" height="520">
+                </div>
+            </div>
+        </header>
+
+        <!-- Impact strip -->
+        <section class="impact" aria-label="Impact at a glance">
+            <div class="container impact__container">
+                <div class="impact__item">
+                    <span class="impact__num" data-count="5300" data-suffix="+">0</span>
+                    <span class="impact__label">Nepalis served through Bureaucrazy</span>
+                </div>
+                <div class="impact__item">
+                    <span class="impact__num" data-count="585" data-suffix="+">0</span>
+                    <span class="impact__label">people trained with Digital Kala</span>
+                </div>
+                <div class="impact__item">
+                    <span class="impact__num" data-count="200" data-suffix="+">0</span>
+                    <span class="impact__label">students taught at Islington College</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section reveal-section" id="about">
+            <div class="container about__grid">
+                <div class="about__aside">
+                    <h2 class="section__title">About me</h2>
+                </div>
+                <div class="about__body">
+                    <p>
+                        I build tools that help ordinary people reach their government. I also bring
+                        communities that usually get left out into digital life.
+                    </p>
+                    <p>
+                        I am the Technical Lead of <a class="link" href="https://www.bureaucrazy.co" target="_blank" rel="noopener">Bureaucrazy</a>,
+                        a civic platform serving 5,300+ Nepalis, which won First Runner-Up at the Kevin Xu
+                        Innovation Challenge at Rhodes House, Oxford. I co-founded
+                        <a class="link" href="https://digitalkala.org" target="_blank" rel="noopener">Digital Kala</a>,
+                        which equips Nepal's youth, women, and marginalized communities with the skills,
+                        awareness, and confidence to navigate the digital world on their own terms. I am the Module Leader and
+                        Lecturer for the Big Data and Data Mining module at
+                        <a class="link" href="https://islington.edu.np/" target="_blank" rel="noopener">Islington College</a>,
+                        where I teach 200+ students.
+                    </p>
+                    <p>
+                        I hold a Research Fellowship at
+                        <a class="link" href="https://www.equitechfutures.com/" target="_blank" rel="noopener">Equitech Futures</a>,
+                        where I am also building FuturesHub. Through it I served as a Venture Fellow and
+                        Alumni Resident Assistant at Reuben College, University of Oxford.
+                    </p>
+                    <p>
+                        I serve as an International Gender Champions Youth Champion. I am also a 2025
+                        U.S. Embassy Youth Council (USYC) member.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work -->
+        <section class="section reveal-section" id="work">
+            <div class="container">
+                <div class="work__head">
+                    <p class="kicker">Work</p>
+                    <h2 class="section__title">Selected work</h2>
+                </div>
+
+                <div class="work__list">
+                    <!-- Bureaucrazy -->
+                    <article class="work__card">
+                        <div class="work__thumb">
+                            <i class="uil uil-university"></i>
+                            <img src="./assets/work/bureaucrazy.png" alt="Bureaucrazy" loading="lazy" onerror="this.remove()">
+                            <span class="work__pill"><strong>5,300+</strong> Nepalis served</span>
                         </div>
-                    </div>
-                    <div class="role-summary">
-                        <p class="summary-text"></p>
-                    </div>
-                    <div class="key-achievements">
-                        <h4>Key Achievements</h4>
-                        <ul class="achievements-list"></ul>
-                    </div>
-                    <div class="technologies-skills">
-                        <h4>Technologies & Skills</h4>
-                        <div class="skills-container"></div>
-                    </div>
+                        <div class="work__body">
+                            <p class="work__role">Technical Lead</p>
+                            <h3 class="work__title">Bureaucrazy</h3>
+                            <p class="work__desc">
+                                A civic platform that helps Nepalis get through government processes. I lead
+                                the technical build, from a RAG chatbot for official documents to a law
+                                library and voter tools. It won First Runner-Up at the Kevin Xu Innovation
+                                Challenge 2025.
+                            </p>
+                            <a class="work__link" href="https://www.bureaucrazy.co" target="_blank" rel="noopener">
+                                bureaucrazy.co <i class="uil uil-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Digital Kala -->
+                    <article class="work__card">
+                        <div class="work__thumb">
+                            <i class="uil uil-users-alt"></i>
+                            <img src="./assets/work/digital-kala.png" alt="Digital Kala" loading="lazy" onerror="this.remove()">
+                            <span class="work__pill"><strong>585+</strong> people trained</span>
+                        </div>
+                        <div class="work__body">
+                            <p class="work__role">Co-Founder and Technical Lead</p>
+                            <h3 class="work__title">Digital Kala</h3>
+                            <p class="work__desc">
+                                Digital Kala equips Nepal's youth, women, and marginalized communities with
+                                the skills, awareness, and confidence to navigate the digital world on their
+                                own terms.
+                            </p>
+                            <a class="work__link" href="https://digitalkala.org" target="_blank" rel="noopener">
+                                digitalkala.org <i class="uil uil-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- FuturesHub -->
+                    <article class="work__card">
+                        <div class="work__thumb">
+                            <i class="uil uil-robot"></i>
+                            <img src="./assets/work/futureshub.png" alt="FuturesHub" loading="lazy" onerror="this.remove()">
+                            <span class="work__pill">Learning platform</span>
+                        </div>
+                        <div class="work__body">
+                            <p class="work__role">Research Fellow, Equitech Futures</p>
+                            <h3 class="work__title">FuturesHub</h3>
+                            <p class="work__desc">
+                                An AI-powered learning platform that opens mentorship to people who usually
+                                get shut out. I lead the technical build. I also wrote its privacy and
+                                data-protection program.
+                            </p>
+                            <a class="work__link" href="https://www.futureshub.com/" target="_blank" rel="noopener">
+                                futureshub.com <i class="uil uil-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Polling Station Simulator -->
+                    <article class="work__card">
+                        <div class="work__thumb">
+                            <i class="uil uil-check-square"></i>
+                            <img src="./assets/work/polling-simulator.png" alt="Polling Station Simulator" loading="lazy" onerror="this.remove()">
+                            <span class="work__pill">Voter tool</span>
+                        </div>
+                        <div class="work__body">
+                            <p class="work__role">Builder, Bureaucrazy</p>
+                            <h3 class="work__title">Polling Station Simulator</h3>
+                            <p class="work__desc">
+                                A walk-through of how voting works in Nepal, made for first-time voters. I
+                                built it ahead of the 2026 general election so people can practice before
+                                they reach the booth.
+                            </p>
+                            <a class="work__link" href="https://polling-simulator.vercel.app/" target="_blank" rel="noopener">
+                                Open the simulator <i class="uil uil-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Publication -->
+                    <article class="work__card">
+                        <div class="work__thumb">
+                            <i class="uil uil-book-alt"></i>
+                            <img src="./assets/work/publication.png" alt="Technology and Digital Governance" loading="lazy" onerror="this.remove()">
+                            <span class="work__pill">Publication</span>
+                        </div>
+                        <div class="work__body">
+                            <p class="work__role">Author, book chapter</p>
+                            <h3 class="work__title">Technology and Digital Governance</h3>
+                            <p class="work__desc">
+                                My chapter in A Guidebook for Voters in Nepal. It looks at AI governance,
+                                data privacy, and the digital divide in Nepal's political life.
+                            </p>
+                            <a class="work__link" href="https://www.bureaucrazy.co/school-of-democrazy/guidebook-for-voters-in-nepal" target="_blank" rel="noopener">
+                                Read the chapter <i class="uil uil-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-<section class="projects" id="projects">
-    <h1>Some Things I've Worked on</h1>
-    
-    <!-- Project Categories Filter -->
-    <!-- Search Bar -->
-  
-    
-    <!-- Category filters removed -->
-    
-    <!-- Projects Container -->
-    <div class="container projects__container">
-        <!-- Project 1: Chess Engine -->
-        <article class="project mix datascience" data-order="1">
-            <div class="project__image">
-                <img src="./assets/project1.png" alt="Chess Engine Project">
-            </div>
-            <h3>Chess Engine (MinMax Algo)</h3>
-            <p>
-                As someone who had no idea on chess, I needed a partner to learn it. 
-                What better partner than the AI? So, I taught computer to play chess 
-                and in the same way learned it with it.
-            </p>
-            <div class="project__cta">
-                <a href="https://github.com/karmasta13/academics-station/tree/main/Karmasta%20Music%20Store" target="_blank">
-                    <i class="uil uil-github-alt" style="color: grey;"></i>
-                </a>
-                <a href="https://github.com/karmasta13/academics-station/tree/main/Karmasta%20Music%20Store" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
+        <!-- Experience -->
+        <section class="section reveal-section" id="experience">
+            <div class="container">
+                <div class="work__head">
+                    <p class="kicker">Experience</p>
+                    <h2 class="section__title">Where I have worked</h2>
+                </div>
 
-        <!-- Project 2: Ropey DVD -->
-        <article class="project mix web" data-order="2">
-            <div class="project__image">
-                <img src="./assets/project2.png" alt="Ropey DVD Project">
-            </div>
-            <h3>Ropey DVD Management System</h3>
-            <p>
-                The primary goal of this system is to help Ropey DVDs manage their rented
-                and returned DVDs. It also assists them in managing the details of various 
-                members of their store.
-            </p>
-            <div class="project__cta">
-                <a href="https://github.com/karmasta13/ropey-system" target="_blank">
-                    <i class="uil uil-github-alt" style="color: grey;"></i>
-                </a>
-                <a href="https://github.com/karmasta13/ropey-system" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
+                <ol class="exp__list">
+                    <li class="exp__item">
+                        <span class="exp__date">2025 — Present</span>
+                        <div class="exp__body">
+                            <h3 class="exp__role">Technical Lead and Architect, FuturesHub</h3>
+                            <p class="exp__org"><a href="https://www.equitechfutures.com/" target="_blank" rel="noopener">Equitech Futures</a></p>
+                            <ul class="exp__points">
+                                <li>I lead the frontend and technical architecture of FuturesHub, an AI-powered learning platform that widens access to education. I own the system design, the UI and UX direction, and feature delivery from end to end.</li>
+                                <li>I work closely with the backend team on API contracts, data models, and release planning, so features ship across the full stack.</li>
+                                <li>I started the platform's privacy and data-protection program and wrote the first draft of the privacy policy.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="exp__item">
+                        <span class="exp__date">2025 — Present</span>
+                        <div class="exp__body">
+                            <h3 class="exp__role">Technical Lead</h3>
+                            <p class="exp__org"><a href="https://www.bureaucrazy.co" target="_blank" rel="noopener">Bureaucrazy</a></p>
+                            <ul class="exp__points">
+                                <li>I lead the technical build of Bureaucrazy, a civic platform that helps 5,300+ Nepalis get through government processes.</li>
+                                <li>I built the RAG chatbot for official documents, the law library, and voter tools including the Polling Station Simulator.</li>
+                                <li>Bureaucrazy won First Runner-Up at the Kevin Xu Innovation Challenge 2025. I presented it at the Rhodes House Forum in Oxford.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="exp__item">
+                        <span class="exp__date">2024 — Present</span>
+                        <div class="exp__body">
+                            <h3 class="exp__role">Module Leader, Big Data and Data Mining</h3>
+                            <p class="exp__org"><a href="https://islington.edu.np/" target="_blank" rel="noopener">Islington College</a></p>
+                            <ul class="exp__points">
+                                <li>I teach Big Data and Data Mining to 200+ undergraduate AI students.</li>
+                                <li>My modules cover dimensional modelling, Apache Spark, Databricks, and OLAP systems, with dedicated units on data ethics and algorithmic bias.</li>
+                                <li>I supervise final year projects and build the labs, assessments, and reading lists.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="exp__item">
+                        <span class="exp__date">2023 — Present</span>
+                        <div class="exp__body">
+                            <h3 class="exp__role">Co-Founder and Technical Lead</h3>
+                            <p class="exp__org"><a href="https://digitalkala.org" target="_blank" rel="noopener">Digital Kala</a></p>
+                            <ul class="exp__points">
+                                <li>I co-founded Digital Kala, which equips Nepal's youth, women, and marginalized communities with the skills, awareness, and confidence to navigate the digital world on their own terms.</li>
+                                <li>We have reached 585+ people and train women in villages who have had little access to technology.</li>
+                                <li>I built the curriculum and trained local facilitators so each community keeps teaching after we leave.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="exp__item">
+                        <span class="exp__date">2022 — 2024</span>
+                        <div class="exp__body">
+                            <h3 class="exp__role">Data Scientist</h3>
+                            <p class="exp__org"><a href="https://www.cloudfactory.com/" target="_blank" rel="noopener">CloudFactory</a></p>
+                            <ul class="exp__points">
+                                <li>I led the identity fraud detection system using anomaly detection and XGBoost.</li>
+                                <li>I built supervised models to predict worker performance from historical data.</li>
+                                <li>I ran AI knowledge sessions for engineering teams and stakeholders.</li>
+                            </ul>
+                        </div>
+                    </li>
 
-        <!-- Project 3: Music Store -->
-        <article class="project mix web" data-order="3">
-            <div class="project__image">
-                <img src="./assets/project3.png" alt="Music Store Project">
-            </div>
-            <h3>Karmasta Music Store</h3>
-            <p>
-                This is a project that designs a system for a music store using XML development.
-                This website is simply a prototype for a hypothetical company looking to build
-                a website.
-            </p>
-            <div class="project__cta">
-                <a href="https://github.com/karmasta13" target="_blank">
-                    <i class="uil uil-github-alt" style="color: grey;"></i>
-                </a>
-                <a href="https://github.com/karmasta13" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
+                    <li class="exp__item exp__item--more">
+                        <span class="exp__date">2024</span>
+                        <div class="exp__body">
+                            <h3 class="exp__role">Lecturer, Data Structures and Algorithms</h3>
+                            <p class="exp__org"><a href="https://apexcollege.edu.np/" target="_blank" rel="noopener">Apex College</a></p>
+                            <ul class="exp__points">
+                                <li>I designed the Data Structures and Algorithms course for second-semester students.</li>
+                                <li>I taught 50+ computing students with a focus on problem-solving and algorithmic thinking.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="exp__item exp__item--more">
+                        <span class="exp__date">2021 — 2022</span>
+                        <div class="exp__body">
+                            <h3 class="exp__role">Data Analyst</h3>
+                            <p class="exp__org"><a href="https://xabit.io/" target="_blank" rel="noopener">Xabit Analytics</a></p>
+                            <ul class="exp__points">
+                                <li>I shipped a recommendation system for the Himalayan Java coffee app that served 10,000 monthly users.</li>
+                                <li>I built dashboards and ran customer segmentation and conversion analysis.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="exp__item exp__item--more">
+                        <span class="exp__date">2019 — 2021</span>
+                        <div class="exp__body">
+                            <h3 class="exp__role">Program Associate</h3>
+                            <p class="exp__org"><a href="https://www.women-lead.org/" target="_blank" rel="noopener">Women LEAD Nepal</a></p>
+                            <ul class="exp__points">
+                                <li>I ran programs, communications, and fundraising for a youth leadership organization.</li>
+                                <li>I coordinated events and donor campaigns and designed the outreach materials.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="exp__item exp__item--more">
+                        <span class="exp__date">2021</span>
+                        <div class="exp__body">
+                            <h3 class="exp__role">Graphic Designer</h3>
+                            <p class="exp__org"><a href="https://www.coderush.com.np/" target="_blank" rel="noopener">Code Rush</a></p>
+                            <ul class="exp__points">
+                                <li>I designed social content and built the company website on WordPress.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ol>
 
-        <!-- Project 4: Berkeley College -->
-        <article class="project mix web" data-order="4">
-            <div class="project__image">
-                <img src="./assets/project4.png" alt="Berkeley College Project">
+                <div class="work__more">
+                    <button type="button" class="btn btn--ghost" id="expMoreBtn">Show more roles</button>
+                </div>
             </div>
-            <h3>Berkeley College System</h3>
-            <p>
-                The database system has been developed and designed for a hypothetical college.
-                According to the case study, the college requires the development of a web-based
-                system capable of performing basic CRUD functions.
-            </p>
-            <div class="project__cta">
-                <a href="https://github.com/karmasta13/academics-station/tree/main/berkeley" target="_blank">
-                    <i class="uil uil-github-alt" style="color: grey;"></i>
-                </a>
-                <a href="https://github.com/karmasta13/academics-station/tree/main/berkeley" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
+        </section>
 
-        <!-- Project 5: 66 Days of Data -->
-        <article class="project mix growth" data-order="5">
-            <div class="project__image">
-                <img src="./assets/project5.png" alt="66 Days of Data">
+        <!-- Writing -->
+        <section class="section reveal-section" id="writing">
+            <div class="container">
+                <div class="work__head">
+                    <p class="kicker">Writing</p>
+                    <h2 class="section__title">Things I have written</h2>
+                </div>
+                <div class="writing__list">
+                    <a class="writing__item" href="https://www.bureaucrazy.co/school-of-democrazy/guidebook-for-voters-in-nepal" target="_blank" rel="noopener">
+                        <span class="writing__title">Technology and Digital Governance</span>
+                        <span class="writing__meta">Chapter, A Guidebook for Voters in Nepal</span>
+                        <i class="uil uil-arrow-up-right"></i>
+                    </a>
+                    <a class="writing__item" href="https://medium.com/@labbikarmacharya/herstory-amplified-0899b19afea6" target="_blank" rel="noopener">
+                        <span class="writing__title">HERstory Amplified</span>
+                        <span class="writing__meta">Medium, on women in science and technology</span>
+                        <i class="uil uil-arrow-up-right"></i>
+                    </a>
+                    <a class="writing__item" href="https://medium.com/@labbikarmacharya/a-beginners-guide-to-iot-with-esp32-60b64cb088ce" target="_blank" rel="noopener">
+                        <span class="writing__title">A Beginner's Guide to IoT with ESP32</span>
+                        <span class="writing__meta">Medium, a hands-on hardware walk-through</span>
+                        <i class="uil uil-arrow-up-right"></i>
+                    </a>
+                </div>
             </div>
-            <h3>66 Days of Data</h3>
-            <p>
-                66 Days of Data journey - a personal challenge inspired by Ken Jee to establish
-                great data science habits through daily practice and sharing my work.
-            </p>
-            <div class="project__cta">
-                <a href="https://github.com/karmasta13/Learning-Station/tree/main/66-days-of-data" target="_blank">
-                    <i class="uil uil-github-alt" style="color: grey;"></i>
-                </a>
-                <a href="https://github.com/karmasta13/Learning-Station/tree/main/66-days-of-data" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
+        </section>
 
-        <!-- Project 6: Certification Station -->
-        <article class="project mix growth" data-order="6">
-            <div class="project__image">
-                <img src="./assets/project6.png" alt="Certification Station">
-            </div>
-            <h3>Certification Station</h3>
-            <p>
-                A platform where I park my bragging rights, safely stored for future reference
-                and spontaneous show-and-tell sessions. Welcome to the station where my 
-                certificates catch the spotlight.
-            </p>
-            <div class="project__cta">
-                <a href="https://github.com/karmasta13/certificates-station" target="_blank">
-                    <i class="uil uil-github-alt" style="color: grey;"></i>
-                </a>
-                <a href="https://github.com/karmasta13/certificates-station" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
-
-        <!-- Project 7: Data Science Station -->
-        <article class="project mix datascience" data-order="7">
-            <div class="project__image">
-                <img src="./assets/project7.png" alt="Data Science Station">
-            </div>
-            <h3>Data Science Station</h3>
-            <p>
-                A space where I dump all my ongoing data science experiments from analysis,
-                recommendation engine, visualizations that have yet to be deployed.
-            </p>
-            <div class="project__cta">
-                <a href="https://github.com/karmasta13/data-science-station" target="_blank">
-                    <i class="uil uil-github-alt" style="color: grey;"></i>
-                </a>
-                <a href="https://github.com/karmasta13/data-science-station" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
-
-        <!-- Project 8: Pyenv Cheatsheet -->
-        <article class="project mix notes" data-order="8">
-            <div class="project__image">
-                <img src="./assets/project8.png" alt="Pyenv Cheatsheet">
-            </div>
-            <h3>Pyenv Cheatsheet</h3>
-            <p>
-                A space for organizing and documenting diverse Python environment experiments
-                using pyenv, encompassing version control, activation, and experimentation with
-                ongoing data science projects.
-            </p>
-            <div class="project__cta">
-                <a href="https://github.com/karmasta13/Cheatsheet/blob/main/pyenv.md" target="_blank">
-                    <i class="uil uil-github-alt" style="color: grey;"></i>
-                </a>
-                <a href="https://github.com/karmasta13/Cheatsheet/blob/main/pyenv.md" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
-
-        <!-- Project 9: Git Cheatsheet -->
-        <article class="project mix notes" data-order="9">
-            <div class="project__image">
-                <img src="./assets/project9.png" alt="Git Cheatsheet">
-            </div>
-            <h3>Git Cheatsheet</h3>
-            <p>
-                A space for storing essential commands for version control, enabling efficient
-                tracking, branching, merging, and collaboration in the projects.
-            </p>
-            <div class="project__cta">
-                <a href="https://github.com/karmasta13/cheatsheet/blob/main/git.md" target="_blank">
-                    <i class="uil uil-github-alt" style="color: grey;"></i>
-                </a>
-                <a href="https://github.com/karmasta13/cheatsheet/blob/main/git.md" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
-
-        <!-- Project 10: Insider Threat Detection Review -->
-        <article class="project mix paper" data-order="10">
-            <div class="project__image">
-                <img src="./assets/project10.png" alt="Insider Threat Detection Review">
-            </div>
-            <h3>(Review) Insider Threat Detection Based on User's Mouse Movements and Keystrokes Behaviour</h3>
-            <p>
-                I conducted a comprehensive review of the paper and subsequently created a
-                concise presentation summarizing its key findings.
-            </p>
-            <div class="project__cta">
-                <a href="https://github.com/karmasta13/karmasta13.github.io/blob/main/assets/Paper%20Exploration/Paper%20Exploration-%20Insider%20Threat%20Detection%20Based%20on%20Users%E2%80%99%20Mouse%20Movements%20and%20Keystrokes%20Behavior%20.pdf" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
-
-        <!-- Project 11: IoT with ESP32 Guide -->
-        <article class="project mix iot" data-order="11">
-            <div class="project__image">
-                <img src="./assets/project11.png" alt="IoT with ESP32 Guide">
-            </div>
-            <h3>(Docs) A beginner's guide to IoT with ESP32</h3>
-            <p>
-                This document serves as a foundational resource for individuals eager to learn
-                about Internet of Things (IoT) using the ESP32 microcontroller.
-            </p>
-            <div class="project__cta">
-                <a href="https://github.com/karmasta13/iot-station/blob/main/Beginner%20Guide%20Docs/A%20beginner%E2%80%99s%20guide%20to%20IoT%20with%20ESP32.md" target="_blank">
-                    <i class="uil uil-github-alt" style="color: grey;"></i>
-                </a>
-                <a href="https://medium.com/@labbikarmacharya/a-beginners-guide-to-iot-with-esp32-60b64cb088ce" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
-
-        <!-- Project 12: HERstory Amplified -->
-        <article class="project mix paper" data-order="12">
-            <div class="project__image">
-                <img src="./assets/project12.png" alt="HERstory Amplified">
-            </div>
-            <h3>(Article) HERstory Amplified</h3>
-            <p>
-                Through this article, I aim to highlight the remarkable contributions of women
-                in the fields of science and technology, acknowledging their invaluable impact
-                on society.
-            </p>
-            <div class="project__cta">
-                <a href="https://medium.com/@labbikarmacharya/herstory-amplified-0899b19afea6" target="_blank">
-                    <i class="uil uil-external-link-alt"></i>
-                </a>
-            </div>
-        </article>
-
-        
-
-        
-    </div>
-</section>
-
-    <!-- Contact Section -->
-    <section class="contacts" id="contacts">
-        <div class="container contact__container">
-            <article class="header__content">
-                <h1>Get In Touch</h1>
-                <p>Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you
-                    have a question or just want to say hi, I'll try my best to get back to you!
+        <!-- Speaking & Advocacy -->
+        <section class="section reveal-section" id="speaking">
+            <div class="container">
+                <div class="work__head">
+                    <p class="kicker">Speaking &amp; Advocacy</p>
+                    <h2 class="section__title">Rooms I show up in</h2>
+                </div>
+                <p class="speaking__intro">
+                    Across mentorship, panels, and talks I have reached 500+ people at more than ten
+                    institutions. As an IGC Youth Champion I was paired with Sameer Chauhan, the Director
+                    of the UN International Computing Centre, and I joined him on the IGC Global Podcast in
+                    2024. I am also a 2025 U.S. Embassy Youth Council (USYC) member.
                 </p>
-                <div class="header__cta">
-                    <a href="mailto:labbikarmacharya@gmail.com" class="btn primary" target="_blank">Say Hello</a>
+
+                <div class="speaking__groups">
+                    <div class="speaking__group">
+                        <h3 class="speaking__group-title"><i class="uil uil-lightbulb-alt"></i> Mentorship</h3>
+                        <ul class="engage">
+                            <li>
+                                <strong>DeerHack</strong>
+                                <p>I mentored the team that won the Ed-Tech track at Deerwalk Institute of Technology.</p>
+                            </li>
+                            <li>
+                                <strong>Shequal Foundation Hackathon</strong>
+                                <p>I mentored builders at this all-female hackathon.</p>
+                            </li>
+                            <li>
+                                <strong>Hack-A-Thon</strong>
+                                <p>I mentored at Nepal's first school-level hackathon, which brought together 53 teams from 40 schools.</p>
+                            </li>
+                            <li>
+                                <strong>Women LEAD Nepal</strong>
+                                <p>I facilitate sessions for youth leaders, including one on ethics and bias in AI.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="speaking__group">
+                        <h3 class="speaking__group-title"><i class="uil uil-microphone"></i> Speaking &amp; panels</h3>
+                        <ul class="engage">
+                            <li>
+                                <strong>IGC Global Podcast</strong>
+                                <p>I was the featured guest in 2024, alongside the Director of the UNICC.</p>
+                            </li>
+                            <li>
+                                <strong>Empower Her, Kathmandu University</strong>
+                                <p>I joined the panel on women in technology.</p>
+                            </li>
+                            <li>
+                                <strong>Empowering Women in Tech</strong>
+                                <p>I sat on the panel at the Janakpur Tech Bootcamp.</p>
+                            </li>
+                            <li>
+                                <strong>Data Symposium 2024, King's College</strong>
+                                <p>I was a panelist on data and its social impact.</p>
+                            </li>
+                            <li>
+                                <strong>SHELITS Programme</strong>
+                                <p>I spoke as a guest for the KU AI Club and NAST.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="speaking__group">
+                        <h3 class="speaking__group-title"><i class="uil uil-comment-alt-dots"></i> Topics I speak on</h3>
+                        <ul class="chips chips--pills">
+                            <li>AI ethics</li>
+                            <li>AI governance</li>
+                            <li>Data privacy</li>
+                            <li>Women in technology</li>
+                            <li>Digital inclusion</li>
+                            <li>Data skills</li>
+                        </ul>
+                    </div>
                 </div>
-            </article>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section class="section reveal-section" id="awards">
+            <div class="container">
+                <div class="work__head">
+                    <p class="kicker">Awards &amp; Recognition</p>
+                    <h2 class="section__title">Recognition</h2>
+                </div>
+                <div class="awards__grid">
+                    <article class="award">
+                        <i class="uil uil-trophy"></i>
+                        <h3>Kevin Xu Innovation Challenge</h3>
+                        <p>First Runner-Up. Rhodes House, Oxford. 2025.</p>
+                    </article>
+                    <article class="award">
+                        <i class="uil uil-graduation-cap"></i>
+                        <h3>Best Final Year IT Project</h3>
+                        <p>London Metropolitan University, among 750+ projects.</p>
+                    </article>
+                    <article class="award">
+                        <i class="uil uil-star"></i>
+                        <h3>Sujata Baskota Changemaker Award</h3>
+                        <p>For grassroots digital literacy with Digital Kala.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section reveal-section" id="projects">
+            <div class="container">
+                <div class="work__head">
+                    <p class="kicker">Projects</p>
+                    <h2 class="section__title">A few other things I've built</h2>
+                </div>
+                <div class="proj__grid">
+                    <article class="proj__card">
+                        <h3 class="proj__title">Chess Engine (MinMax Algo)</h3>
+                        <p class="proj__desc">I had no idea how to play chess, so I taught a computer to play it with a MinMax algorithm and learned the game alongside it.</p>
+                        <a class="proj__link" href="https://github.com/karmasta13/chess-engine" target="_blank" rel="noopener">GitHub <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+                    <article class="proj__card">
+                        <h3 class="proj__title">Ropey DVD Management System</h3>
+                        <p class="proj__desc">A system that helps a DVD store track rentals, returns, and the details of its members.</p>
+                        <a class="proj__link" href="https://github.com/karmasta13/ropey-system" target="_blank" rel="noopener">GitHub <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+                    <article class="proj__card">
+                        <h3 class="proj__title">Karmasta Music Store</h3>
+                        <p class="proj__desc">A prototype music store site built with XML for a hypothetical company looking to go online.</p>
+                        <a class="proj__link" href="https://github.com/karmasta13/academics-station/tree/main/Karmasta%20Music%20Store" target="_blank" rel="noopener">GitHub <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+                    <article class="proj__card">
+                        <h3 class="proj__title">Berkeley College System</h3>
+                        <p class="proj__desc">A web database system for a hypothetical college that handles full CRUD operations.</p>
+                        <a class="proj__link" href="https://github.com/karmasta13/academics-station/tree/main/berkeley" target="_blank" rel="noopener">GitHub <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+                    <article class="proj__card">
+                        <h3 class="proj__title">66 Days of Data</h3>
+                        <p class="proj__desc">A personal challenge inspired by Ken Jee to build daily data science habits and share the work.</p>
+                        <a class="proj__link" href="https://github.com/karmasta13/Learning-Station/tree/main/66-days-of-data" target="_blank" rel="noopener">GitHub <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+                    <article class="proj__card">
+                        <h3 class="proj__title">Certification Station</h3>
+                        <p class="proj__desc">A place where I keep my certificates for reference and the occasional show-and-tell.</p>
+                        <a class="proj__link" href="https://github.com/karmasta13/certificates-station" target="_blank" rel="noopener">GitHub <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+
+                    <article class="proj__card proj__card--more">
+                        <h3 class="proj__title">Data Science Station</h3>
+                        <p class="proj__desc">A space for my ongoing data science experiments in analysis, recommendation, and visualization.</p>
+                        <a class="proj__link" href="https://github.com/karmasta13/data-science-station" target="_blank" rel="noopener">GitHub <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+                    <article class="proj__card proj__card--more">
+                        <h3 class="proj__title">Pyenv Cheatsheet</h3>
+                        <p class="proj__desc">Working notes on managing Python versions and environments with pyenv.</p>
+                        <a class="proj__link" href="https://github.com/karmasta13/Cheatsheet/blob/main/pyenv.md" target="_blank" rel="noopener">GitHub <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+                    <article class="proj__card proj__card--more">
+                        <h3 class="proj__title">Git Cheatsheet</h3>
+                        <p class="proj__desc">Essential commands for version control, branching, merging, and collaboration.</p>
+                        <a class="proj__link" href="https://github.com/karmasta13/cheatsheet/blob/main/git.md" target="_blank" rel="noopener">GitHub <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+                    <article class="proj__card proj__card--more">
+                        <h3 class="proj__title">Insider Threat Detection Review</h3>
+                        <p class="proj__desc">A review of a research paper on insider threat detection, with a short summary presentation.</p>
+                        <a class="proj__link" href="https://github.com/karmasta13/karmasta13.github.io/blob/main/assets/Paper%20Exploration/Paper%20Exploration-%20Insider%20Threat%20Detection%20Based%20on%20Users%E2%80%99%20Mouse%20Movements%20and%20Keystrokes%20Behavior%20.pdf" target="_blank" rel="noopener">View PDF <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+                    <article class="proj__card proj__card--more">
+                        <h3 class="proj__title">A Beginner's Guide to IoT with ESP32</h3>
+                        <p class="proj__desc">A guide to the Internet of Things for people starting out with the ESP32 microcontroller.</p>
+                        <a class="proj__link" href="https://medium.com/@labbikarmacharya/a-beginners-guide-to-iot-with-esp32-60b64cb088ce" target="_blank" rel="noopener">Medium <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+                    <article class="proj__card proj__card--more">
+                        <h3 class="proj__title">HERstory Amplified</h3>
+                        <p class="proj__desc">An article on the contributions of women in science and technology.</p>
+                        <a class="proj__link" href="https://medium.com/@labbikarmacharya/herstory-amplified-0899b19afea6" target="_blank" rel="noopener">Medium <i class="uil uil-arrow-up-right"></i></a>
+                    </article>
+                </div>
+                <div class="work__more">
+                    <button type="button" class="btn btn--ghost" id="projMoreBtn">Show more projects</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section contact reveal-section" id="contact">
+            <div class="container">
+                <div class="work__head">
+                    <p class="kicker">Contact</p>
+                    <h2 class="section__title">Let's work together</h2>
+                </div>
+                <div class="contact__grid">
+                    <div class="contact__info">
+                        <p class="contact__lead">
+                            My inbox is open. I would love to hear about fellowships, speaking invitations,
+                            and collaborations in civic tech, AI governance, and digital inclusion. Send me
+                            a note and I will reply.
+                        </p>
+                        <ul class="contact__meta">
+                            <li><i class="uil uil-envelope"></i> <a class="link" href="mailto:labbikarmacharya@gmail.com">labbikarmacharya@gmail.com</a></li>
+                            <li><i class="uil uil-map-marker"></i> Lalitpur, Nepal</li>
+                        </ul>
+                        <div class="contact__socials">
+                            <a href="https://www.linkedin.com/in/labbi-karmacharya/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="uil uil-linkedin-alt"></i></a>
+                            <a href="https://github.com/karmasta13" target="_blank" rel="noopener" aria-label="GitHub"><i class="uil uil-github-alt"></i></a>
+                            <a href="https://medium.com/@labbikarmacharya" target="_blank" rel="noopener" aria-label="Medium"><i class="uil-medium-m"></i></a>
+                        </div>
+                        <button type="button" class="btn btn--ghost" data-open-cv>Request my CV</button>
+                    </div>
+
+                    <form class="contact__form" id="contactForm" data-web3form data-success="Thank you. I will be in touch soon.">
+                        <input type="hidden" name="access_key" value="7f0f2564-43a3-4ee6-ab1b-9221ba5fdcfc">
+                        <input type="hidden" name="subject" value="New message from labbi.com.np">
+                        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+                        <label class="field">
+                            <span>Name</span>
+                            <input type="text" name="name" required>
+                        </label>
+                        <label class="field">
+                            <span>Email</span>
+                            <input type="email" name="email" required>
+                        </label>
+                        <label class="field">
+                            <span>Message</span>
+                            <textarea name="message" rows="4" required></textarea>
+                        </label>
+                        <button type="submit" class="btn btn--primary">Send message</button>
+                        <p class="form__status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Request CV modal -->
+    <div class="modal" id="cvModal" aria-hidden="true">
+        <div class="modal__backdrop" data-close-cv></div>
+        <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="cvTitle">
+            <button class="modal__close" data-close-cv aria-label="Close">&times;</button>
+            <h2 class="modal__title" id="cvTitle">Request my CV</h2>
+            <p class="modal__intro">
+                I read every request myself. Tell me a little about you and I will send my CV to your email.
+            </p>
+            <form class="modal__form" id="cvForm" data-web3form data-success="Thanks. I read every request myself and will send my CV to your email soon.">
+                <input type="hidden" name="access_key" value="7f0f2564-43a3-4ee6-ab1b-9221ba5fdcfc">
+                <input type="hidden" name="subject" value="CV request from labbi.com.np">
+                <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+                <div class="modal__row">
+                    <label class="field">
+                        <span>Name</span>
+                        <input type="text" name="name" required>
+                    </label>
+                    <label class="field">
+                        <span>Email</span>
+                        <input type="email" name="email" required>
+                    </label>
+                </div>
+                <label class="field">
+                    <span>Organization</span>
+                    <input type="text" name="organization">
+                </label>
+                <label class="field">
+                    <span>Reason</span>
+                    <select name="reason" required>
+                        <option value="" disabled selected>Choose one</option>
+                        <option>Fellowship</option>
+                        <option>Speaking</option>
+                        <option>Hiring</option>
+                        <option>Collaboration</option>
+                        <option>Other</option>
+                    </select>
+                </label>
+                <label class="field">
+                    <span>Note (optional)</span>
+                    <textarea name="message" rows="3"></textarea>
+                </label>
+                <button type="submit" class="btn btn--primary">Send request</button>
+                <p class="form__status" aria-live="polite"></p>
+            </form>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer>
-        <div class="container footer_container">
-            <div class="footer__menu">
-                <div><a href="https://github.com/karmasta13" target="_blank"><i class="uil uil-github-alt"></i></a></div>
-                <div><a href="https://www.linkedin.com/in/labbi-karmacharya/" target="_blank"><i class="uil uil-linkedin-alt"></i></a></div>
-                <div><a href="https://www.instagram.com/labbi.k" target="_blank"><i class="uil uil-instagram"></i></a></div>
-                <div><a href="https://unsplash.com/@karmasta" target="_blank"><i class="uil uil-camera"></i></a></div>
-            </div>
-        </div>
-        <div class="container footer__copyright">
+    <footer class="footer">
+        <div class="container footer__container">
+            <p class="footer__note">Built in Kathmandu.</p>
+            <ul class="footer__socials">
+                <li><a href="https://www.linkedin.com/in/labbi-karmacharya/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="uil uil-linkedin-alt"></i></a></li>
+                <li><a href="https://github.com/karmasta13" target="_blank" rel="noopener" aria-label="GitHub"><i class="uil uil-github-alt"></i></a></li>
+                <li><a href="https://medium.com/@labbikarmacharya" target="_blank" rel="noopener" aria-label="Medium"><i class="uil-medium-m"></i></a></li>
+            </ul>
             <small id="copyright"></small>
         </div>
     </footer>
 
-    <!-- Enhanced Scroll to Top Button -->
+    <div class="social-dock" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/labbi-karmacharya/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="uil uil-linkedin-alt"></i></a>
+        <a href="https://github.com/karmasta13" target="_blank" rel="noopener" aria-label="GitHub"><i class="uil uil-github-alt"></i></a>
+        <a href="https://medium.com/@labbikarmacharya" target="_blank" rel="noopener" aria-label="Medium"><i class="uil-medium-m"></i></a>
+    </div>
+
     <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
-        <div class="scroll-progress-ring">
-            <svg class="progress-ring" width="50" height="50">
-                <circle class="progress-ring-circle" stroke="var(--color-primary)" stroke-width="3" fill="transparent" r="20" cx="25" cy="25"/>
-            </svg>
-        </div>
         <i class="uil uil-arrow-up"></i>
     </button>
 
-  
-
-    <!-- Scripts -->
-    
-    <script src="./data/experience.js"></script>
-    <script src="./js/content-loader.js"></script>
     <script src="./index.js"></script>
 </body>
 </html>

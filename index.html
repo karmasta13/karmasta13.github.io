@@ -33,7 +33,7 @@
       "name": "Labbi Karmacharya",
       "jobTitle": "Civic Technologist, Technical Data Architect, and Educator",
       "url": "https://www.labbi.com.np/",
-      "email": "mailto:labbikarmacharya@gmail.com",
+      "email": "mailto:contact@labbi.com.np",
       "address": { "@type": "PostalAddress", "addressLocality": "Lalitpur", "addressCountry": "Nepal" },
       "sameAs": [
         "https://www.linkedin.com/in/labbi-karmacharya/",
@@ -52,7 +52,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="preload" as="style" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"></noscript>
+    <link rel="preload" as="image" href="./assets/profile.png">
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -74,6 +76,11 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#speaking">Speaking</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li class="nav__menu-socials">
+                    <a href="https://www.linkedin.com/in/labbi-karmacharya/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="uil uil-linkedin-alt"></i></a>
+                    <a href="https://github.com/karmasta13" target="_blank" rel="noopener" aria-label="GitHub"><i class="uil uil-github-alt"></i></a>
+                    <a href="https://medium.com/@labbikarmacharya" target="_blank" rel="noopener" aria-label="Medium"><i class="uil-medium-m"></i></a>
+                </li>
             </ul>
             <div class="nav__buttons">
                 <button class="nav__theme-btn" aria-label="Toggle theme">
@@ -628,7 +635,7 @@
                             a note and I will reply.
                         </p>
                         <ul class="contact__meta">
-                            <li><i class="uil uil-envelope"></i> <a class="link" href="mailto:labbikarmacharya@gmail.com">labbikarmacharya@gmail.com</a></li>
+                            <li><i class="uil uil-envelope"></i> <a class="link" href="mailto:contact@labbi.com.np">contact@labbi.com.np</a></li>
                             <li><i class="uil uil-map-marker"></i> Lalitpur, Nepal</li>
                         </ul>
                         <div class="contact__socials">
@@ -724,6 +731,12 @@
         </div>
     </footer>
 
+    <!-- Mobile action bar -->
+    <div class="mobile-cta">
+        <a href="#contact" class="btn btn--primary">Get in touch</a>
+        <button type="button" class="btn btn--ghost" data-open-cv>Request CV</button>
+    </div>
+
     <div class="social-dock" aria-label="Social links">
         <a href="https://www.linkedin.com/in/labbi-karmacharya/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="uil uil-linkedin-alt"></i></a>
         <a href="https://github.com/karmasta13" target="_blank" rel="noopener" aria-label="GitHub"><i class="uil uil-github-alt"></i></a>
@@ -731,6 +744,9 @@
     </div>
 
     <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+        <svg class="progress-ring" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+            <circle class="progress-ring-circle" r="21" cx="24" cy="24" fill="transparent" stroke-width="3"></circle>
+        </svg>
         <i class="uil uil-arrow-up"></i>
     </button>
 

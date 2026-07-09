@@ -85,11 +85,23 @@ const onScroll = () => {
 };
 window.addEventListener('scroll', onScroll, { passive: true });
 
-/* ---------- Scroll-to-top ---------- */
+/* ---------- Scroll-to-top with progress ring ---------- */
 const scrollTopBtn = document.getElementById('scrollTopBtn');
 if (scrollTopBtn) {
+  const ring = scrollTopBtn.querySelector('.progress-ring-circle');
+  const circumference = 2 * Math.PI * 21;
+  if (ring) {
+    ring.style.strokeDasharray = `${circumference}`;
+    ring.style.strokeDashoffset = `${circumference}`;
+  }
   window.addEventListener('scroll', () => {
-    scrollTopBtn.classList.toggle('show', window.scrollY > 400);
+    const y = window.scrollY;
+    scrollTopBtn.classList.toggle('show', y > 400);
+    if (ring) {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? y / docHeight : 0;
+      ring.style.strokeDashoffset = `${circumference * (1 - pct)}`;
+    }
   }, { passive: true });
   scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -164,22 +176,43 @@ if (expMoreBtn && expList) {
 /* ---------- CV request modal ---------- */
 const cvModal = document.getElementById('cvModal');
 if (cvModal) {
-  const openCv = () => {
+  let lastFocused = null;
+  const focusableSelector = 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+  const openCv = (e) => {
+    lastFocused = (e && e.currentTarget) || document.activeElement;
     cvModal.classList.add('open');
     cvModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    const firstInput = cvModal.querySelector('input, select, textarea');
-    if (firstInput) firstInput.focus();
+    const first = cvModal.querySelector(focusableSelector);
+    if (first) first.focus();
   };
   const closeCv = () => {
     cvModal.classList.remove('open');
     cvModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
   };
+
   document.querySelectorAll('[data-open-cv]').forEach((btn) => btn.addEventListener('click', openCv));
   document.querySelectorAll('[data-close-cv]').forEach((el) => el.addEventListener('click', closeCv));
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && cvModal.classList.contains('open')) closeCv();
+    if (!cvModal.classList.contains('open')) return;
+    if (e.key === 'Escape') { closeCv(); return; }
+    if (e.key === 'Tab') {
+      const items = Array.from(cvModal.querySelectorAll(focusableSelector)).filter((el) => el.offsetParent !== null);
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   });
 }
 

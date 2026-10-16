@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 :root {
+  /* Self-hosted font families (see @fontsource imports in layout.tsx) */
+  --font-display: "Playfair Display Variable", Georgia, serif;
+  --font-ui: "Inter Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display Variable", Georgia, serif;
+
   /* Paper fallback behind the texture */
   --paper: 243 239 228; /* #f3efe4 cream */
   /* Two-tone ink system: near-black structure + #ad0916 red accent */

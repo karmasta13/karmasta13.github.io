@@ -1,30 +1,10 @@
 import type { Metadata } from "next";
-import { Playfair_Display, EB_Garamond, Inter } from "next/font/google";
 import { profile } from "@/lib/content";
+// Self-hosted fonts (no build-time Google Fonts fetch — reliable in CI).
+import "@fontsource-variable/playfair-display";
+import "@fontsource-variable/playfair-display/wght-italic.css";
+import "@fontsource-variable/inter";
 import "./globals.css";
-
-const display = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-  style: ["normal", "italic"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const serif = EB_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
-const ui = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-ui",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.title}`,
@@ -45,10 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${display.variable} ${serif.variable} ${ui.variable}`}
-    >
+    <html lang="en">
       <head>
         <script dangerouslySetInnerHTML={{ __html: inkInit }} />
       </head>

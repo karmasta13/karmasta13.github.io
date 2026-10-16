@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Paper fallback behind the texture */
+  --paper: 243 239 228; /* #f3efe4 cream */
+  /* Two-tone ink system: near-black structure + #ad0916 red accent */
+  --ink: 17 15 14; /* #110f0e near-black */
+  --accent: 173 9 22; /* #ad0916 red */
+  /* Clean white "sheet" surface for alternating torn-paper sections */
+  --sheet: 255 254 251; /* #fffefb warm white */
+}
+
+/* Red-forward variant: primary becomes red, accent flips to black */
+[data-ink="crimson"] {
+  --ink: 173 9 22; /* #ad0916 */
+  --accent: 17 15 14; /* #110f0e */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--ink));
+  background-color: rgb(var(--paper));
+  /* Handmade paper texture */
+  background-image: url("/paper.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: var(--font-ui), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* A faint paper wash so text stays readable over the texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgb(var(--paper) / 0.5);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@layer components {
+  /* Thin framed border like the printed card */
+  .card-frame {
+    border: 1px solid rgb(var(--ink) / 0.55);
+  }
+
+  /* Line-art illustration rendered as a CSS mask so the ink color follows the theme */
+  .illustration {
+    background-color: rgb(var(--ink));
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transition: background-color 0.4s ease;
+  }
+
+  .ink-rule {
+    height: 1px;
+    background: rgb(var(--ink) / 0.4);
+  }
+
+  /* Short accent rule in red */
+  .accent-rule {
+    height: 2px;
+    background: rgb(var(--accent));
+  }
+
+  .link-underline {
+    background-image: linear-gradient(rgb(var(--accent)), rgb(var(--accent)));
+    background-size: 0% 1.5px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 0.3s ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 1.5px;
+  }
+
+  .eyebrow {
+    font-style: italic;
+    letter-spacing: 0.02em;
+    color: rgb(var(--accent));
+  }
+
+  .section-pad {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
+
+  /* Opaque surfaces for the stacking "sheets of paper" scroll effect */
+  .surface-white {
+    background: rgb(var(--sheet));
+  }
+  .surface-paper {
+    background-color: rgb(var(--paper));
+    background-image: linear-gradient(
+        rgb(var(--paper) / 0.5),
+        rgb(var(--paper) / 0.5)
+      ),
+      url("/paper.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Giant outlined display text for the hero name */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 3px rgb(var(--ink));
+    paint-order: stroke fill;
+  }
+
+  /* Rounded pill buttons (light + dark) matching the reference nav */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgb(var(--ink) / 0.25);
+    border-radius: 9999px;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.875rem;
+    line-height: 1;
+    background: rgb(var(--paper) / 0.5);
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+  .pill:hover {
+    border-color: rgb(var(--ink) / 0.55);
+    background: rgb(var(--paper) / 0.8);
+  }
+
+  .pill-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 9999px;
+    padding: 0.5rem 1.05rem;
+    font-size: 0.875rem;
+    line-height: 1;
+    background: rgb(var(--ink));
+    color: rgb(var(--paper));
+    transition: opacity 0.2s ease;
+  }
+  .pill-dark:hover {
+    opacity: 0.85;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

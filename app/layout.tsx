@@ -7,10 +7,10 @@ import "@fontsource-variable/inter";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: `${profile.name} — ${profile.title}`,
+  title: "Tech with Labbi",
   description: profile.tagline,
   openGraph: {
-    title: `${profile.name} — ${profile.title}`,
+    title: "Tech with Labbi",
     description: profile.tagline,
     type: "website",
   },

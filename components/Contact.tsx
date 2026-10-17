@@ -3,21 +3,34 @@
 import { useState } from "react";
 import { profile } from "@/lib/content";
 import { Section, SectionHeading } from "./Section";
+import { CvButton } from "./CvRequest";
 
 const c = profile.contact;
 
-export default function Contact({ index }: { index?: number }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+type Status = "idle" | "sending" | "sent" | "error";
 
-  function handleSubmit(e: React.FormEvent) {
+export default function Contact({ index }: { index?: number }) {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio message from ${name || "someone"}`);
-    const body = encodeURIComponent(
-      `${message}\n\n— ${name}${email ? ` (${email})` : ""}`
-    );
-    window.location.href = `mailto:${c.email}?subject=${subject}&body=${body}`;
+    setStatus("sending");
+    const form = e.currentTarget;
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: new FormData(form),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   const field =
@@ -51,42 +64,33 @@ export default function Contact({ index }: { index?: number }) {
               <dd className="mt-1 text-ink/80">{c.location}</dd>
             </div>
           </dl>
-          <a
-            href={profile.cvUrl}
-            className="mt-8 inline-block rounded-full border border-ink/50 px-6 py-2.5 text-sm tracking-wide transition-colors hover:bg-ink hover:text-paper"
-          >
-            Request my CV
-          </a>
+          <CvButton className="mt-8 inline-block rounded-full border border-ink/50 px-6 py-2.5 text-sm tracking-wide transition-colors hover:bg-ink hover:text-paper" />
         </div>
 
         {/* Right: form */}
         <form onSubmit={handleSubmit} className="card-frame rounded-sm p-6 sm:p-8">
+          <input type="hidden" name="access_key" value={profile.web3formsKey} />
+          <input type="hidden" name="subject" value="New message from labbi.com.np" />
+          <input
+            type="checkbox"
+            name="botcheck"
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+          />
           <div className="space-y-4">
             <div>
               <label htmlFor="name" className="eyebrow mb-1 block text-sm not-italic">
                 Name
               </label>
-              <input
-                id="name"
-                type="text"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className={field}
-              />
+              <input id="name" name="name" type="text" required className={field} />
             </div>
             <div>
               <label htmlFor="email" className="eyebrow mb-1 block text-sm not-italic">
                 Email
               </label>
-              <input
-                id="email"
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className={field}
-              />
+              <input id="email" name="email" type="email" required className={field} />
             </div>
             <div>
               <label htmlFor="message" className="eyebrow mb-1 block text-sm not-italic">
@@ -94,20 +98,30 @@ export default function Contact({ index }: { index?: number }) {
               </label>
               <textarea
                 id="message"
+                name="message"
                 required
                 rows={5}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
                 className={`${field} resize-y`}
               />
             </div>
           </div>
           <button
             type="submit"
-            className="mt-5 w-full rounded-full border border-accent bg-accent px-6 py-2.5 text-sm tracking-wide text-paper transition-opacity hover:opacity-85"
+            disabled={status === "sending"}
+            className="mt-5 w-full rounded-full border border-accent bg-accent px-6 py-2.5 text-sm tracking-wide text-paper transition-opacity hover:opacity-85 disabled:opacity-60"
           >
-            Send message
+            {status === "sending" ? "Sending…" : "Send message"}
           </button>
+          {status === "sent" && (
+            <p className="mt-3 text-sm text-ink/80" aria-live="polite">
+              Thank you. I will be in touch soon.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="mt-3 text-sm text-accent" aria-live="polite">
+              Something went wrong. Please email {c.email} directly.
+            </p>
+          )}
         </form>
       </div>
     </Section>

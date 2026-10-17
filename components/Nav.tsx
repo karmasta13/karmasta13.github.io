@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 
+// Order must match the section order in app/page.tsx so scroll-spy highlights
+// the right link.
 const links = [
   { href: "#about", id: "about", label: "About" },
   { href: "#work", id: "work", label: "Work" },
   { href: "#experience", id: "experience", label: "Experience" },
-  { href: "#projects", id: "projects", label: "Projects" },
-  { href: "#speaking", id: "speaking", label: "Speaking" },
+  { href: "#speaking", id: "speaking", label: "Advocacy" },
+  { href: "#awards", id: "awards", label: "Awards" },
 ];
 
 function Laptop() {
@@ -15,6 +17,8 @@ function Laptop() {
     <svg
       viewBox="0 0 24 24"
       className="h-5 w-5"
+      aria-hidden="true"
+      focusable="false"
       fill="none"
       stroke="rgb(var(--accent))"
       strokeWidth="1.8"
@@ -29,7 +33,7 @@ function Laptop() {
 
 function ArrowUpRight() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5" aria-hidden="true" focusable="false">
       <path d="M7 17 17 7M9 7h8v8" />
     </svg>
   );
@@ -67,7 +71,14 @@ export default function Nav() {
     <header className="surface-paper sticky top-0 z-30 font-sans">
       <div className="mx-auto flex max-w-content items-center justify-between gap-4 px-6 py-3.5">
         {/* Left: brand */}
-        <a href="#top" className="flex shrink-0 items-center gap-2">
+        <a
+          href="#top"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="flex shrink-0 items-center gap-2"
+        >
           <Laptop />
           <span className="text-[15px] font-semibold tracking-tight text-ink">
             Tech with Labbi
@@ -75,7 +86,7 @@ export default function Nav() {
         </a>
 
         {/* Center: links with active pill */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
           {links.map((l) => {
             const isActive = active === l.id;
             return (

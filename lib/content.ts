@@ -4,38 +4,42 @@
 export const profile = {
   name: "Labbi",
   greeting: "नमस्ते, I am",
-  title: "Civic technologist, technical data architect, and educator",
+  title: "Technical Lead and educator building civic tech",
   tagline:
-    "I build tools that make complicated systems easier for ordinary people to deal with. My work sits where technology, gender, and inclusion meet, and it is about making public life accessible to everyone.",
-  cvUrl: "#", // replace with a link to your CV (e.g. /labbi-cv.pdf)
+    "I build tools that make complicated systems easier for ordinary people to deal with. My work sits where technology and inclusion meet, and I care about how AI is governed so it serves everyone. It is about making public life accessible to all.",
+  // Web3Forms access key, used by the contact and CV request forms.
+  web3formsKey: "7f0f2564-43a3-4ee6-ab1b-9221ba5fdcfc",
   contact: {
     email: "contact@labbi.com.np",
     location: "Lalitpur, Nepal",
     instagram: "Tech with Labbi",
     instagramUrl: "https://instagram.com/techwithlabbi",
-    githubUrl: "https://github.com/Karmasta13",
-    linkedinUrl: "https://www.linkedin.com/",
+    githubUrl: "https://github.com/karmasta13",
+    linkedinUrl: "https://www.linkedin.com/in/labbi-karmacharya/",
+    mediumUrl: "https://medium.com/@labbikarmacharya",
   },
 };
 
 export const socials = [
+  { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/labbi-karmacharya/" },
+  { label: "GitHub", icon: "github", href: "https://github.com/karmasta13" },
+  { label: "Medium", icon: "medium", href: "https://medium.com/@labbikarmacharya" },
   { label: "Instagram", icon: "instagram", href: "https://instagram.com/techwithlabbi" },
-  { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/" },
-  { label: "GitHub", icon: "github", href: "https://github.com/Karmasta13" },
   { label: "Email", icon: "mail", href: "mailto:contact@labbi.com.np" },
 ] as const;
 
 export const stats = [
   { value: "5,300+", label: "Nepalis served through Bureaucrazy" },
   { value: "585+", label: "people trained with Digital Kala" },
-  { value: "200+", label: "students taught at Islington College" },
+  { value: "200+", label: "students taught at Islington College every year" },
 ];
 
 export const about: string[] = [
   "I build tools that help ordinary people reach their government. I also bring communities that usually get left out into digital life.",
+  "I am a  Technical Lead and Research Fellowship at Equitech Futures, where I am also building FuturesHub. Through it I served as a Venture Fellow and Alumni Resident Assistant at Reuben College, University of Oxford.",
+
   "I am the Technical Lead of Bureaucrazy, a civic platform serving 5,300+ Nepalis, which won First Runner-Up at the Kevin Xu Innovation Challenge at Rhodes House, Oxford. I co-founded Digital Kala, which equips Nepal's youth, women, and marginalized communities with the skills, awareness, and confidence to navigate the digital world on their own terms. I am the Module Leader and Lecturer for the Big Data and Data Mining module at Islington College, where I teach 200+ students.",
-  "I hold a Research Fellowship at Equitech Futures, where I am also building FuturesHub. Through it I served as a Venture Fellow and Alumni Resident Assistant at Reuben College, University of Oxford.",
-  "I serve as an International Gender Champions Youth Champion. I am also a 2025 U.S. Embassy Youth Council (USYC) member.",
+  "My work now extends into AI and internet governance. In September 2026 I was a fellow and rapporteur at inSIG at IIT Bombay. I was a 2024 International Gender Champions Youth Champion, and I served on the U.S. Embassy Youth Council in 2025",
 ];
 
 export type Work = {
@@ -51,6 +55,16 @@ export type Work = {
 };
 
 export const selectedWork: Work[] = [
+  {
+    title: "FuturesHub",
+    image: "/work/futureshub.png",
+    kicker: "Learning platform",
+    role: "Tech Lead and Research Fellow, Equitech Futures",
+    description:
+      "An AI-powered learning platform that opens mentorship to people who usually get shut out. I lead the technical build. I also wrote its privacy and data-protection program.",
+    linkLabel: "futureshub.com",
+    href: "https://futureshub.com",
+  },
   {
     title: "Bureaucrazy",
     image: "/work/bureaucrazy.png",
@@ -73,16 +87,7 @@ export const selectedWork: Work[] = [
     linkLabel: "digitalkala.org",
     href: "https://digitalkala.org",
   },
-  {
-    title: "FuturesHub",
-    image: "/work/futureshub.png",
-    kicker: "Learning platform",
-    role: "Research Fellow, Equitech Futures",
-    description:
-      "An AI-powered learning platform that opens mentorship to people who usually get shut out. I lead the technical build. I also wrote its privacy and data-protection program.",
-    linkLabel: "futureshub.com",
-    href: "https://futureshub.com",
-  },
+  
   {
     title: "Polling Station Simulator",
     image: "/work/polling-simulator.png",
@@ -91,7 +96,7 @@ export const selectedWork: Work[] = [
     description:
       "A walk-through of how voting works in Nepal, made for first-time voters. I built it ahead of the 2026 general election so people can practice before they reach the booth.",
     linkLabel: "Open the simulator",
-    href: "#",
+    href: "https://polling-simulator.vercel.app/",
   },
   {
     title: "Technology and Digital Governance",
@@ -101,7 +106,7 @@ export const selectedWork: Work[] = [
     description:
       "My chapter in A Guidebook for Voters in Nepal. It looks at AI governance, data privacy, and the digital divide in Nepal's political life.",
     linkLabel: "Read the chapter",
-    href: "#",
+    href: "https://www.bureaucrazy.co/school-of-democrazy/guidebook-for-voters-in-nepal",
   },
 ];
 
@@ -114,8 +119,8 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    period: "2025 — Present",
-    title: "Technical Lead and Architect, FuturesHub",
+    period: "2024 - Present",
+    title: "Technical Lead and Research Fellow, FuturesHub",
     org: "Equitech Futures",
     bullets: [
       "I lead the frontend and technical architecture of FuturesHub, an AI-powered learning platform that widens access to education. I own the system design, the UI and UX direction, and feature delivery from end to end.",
@@ -124,7 +129,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    period: "2025 — Present",
+    period: "2025 - Present",
     title: "Technical Lead",
     org: "Bureaucrazy",
     bullets: [
@@ -134,7 +139,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    period: "2024 — Present",
+    period: "2024 - Present",
     title: "Module Leader, Big Data and Data Mining",
     org: "Islington College",
     bullets: [
@@ -144,8 +149,8 @@ export const experience: Experience[] = [
     ],
   },
   {
-    period: "2023 — Present",
-    title: "Co-Founder and Technical Lead",
+    period: "2023 - Present",
+    title: "Co-Founder ",
     org: "Digital Kala",
     bullets: [
       "I co-founded Digital Kala, which equips Nepal's youth, women, and marginalized communities with the skills, awareness, and confidence to navigate the digital world on their own terms.",
@@ -154,7 +159,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    period: "2022 — 2024",
+    period: "2022 - 2024",
     title: "Data Scientist",
     org: "CloudFactory",
     bullets: [
@@ -191,33 +196,57 @@ export const writing: Writing[] = [
 
 export const speaking = {
   intro:
-    "Across mentorship, panels, and talks I have reached 500+ people at more than ten institutions. As an IGC Youth Champion I was paired with Sameer Chauhan, the Director of the UN International Computing Centre, and I joined him on the IGC Global Podcast in 2024. I am also a 2025 U.S. Embassy Youth Council (USYC) member.",
+    "Through mentoring and talks, I have reached 500+ people at more than ten institutions. As a 2024 IGC Youth Champion I was paired with Sameer Chauhan, Director of the UN International Computing Centre. I served on the U.S. Embassy Youth Council in 2025.",
   mentorship: [
     {
-      title: "DeerHack",
+      title: "DeerHack 2026",
       description:
-        "I mentored the team that won the Ed-Tech track at Deerwalk Institute of Technology.",
+        "I mentored four teams at Deerwalk Institute of Technology, including the overall winner and the Ed-Tech track winner.",
+    },
+    {
+      title: "Hack-A-Thon",
+      description:
+        "I mentored at Nepal's first school-level hackathon in 2025 and 2026. It brought together 53 teams from 40 schools.",
     },
     {
       title: "Shequal Foundation Hackathon",
       description: "I mentored builders at this all-female hackathon.",
     },
     {
-      title: "Hack-A-Thon",
-      description:
-        "I mentored at Nepal's first school-level hackathon, which brought together 53 teams from 40 schools.",
+      title: "People's Data Hackathon",
+      description: "I served as an Expert Mentor.",
     },
     {
-      title: "Women LEAD Nepal",
+      title: "Data Crunch 2024, CloudFactory",
       description:
-        "I facilitate sessions for youth leaders, including one on ethics and bias in AI.",
+        "I mentored participants at the company's internal data hackathon.",
     },
   ],
   panels: [
     {
+      title: "Prashasan Pro launch, Kathmandu",
+      description:
+        "In June 2026 I moderated a panel on digital governance and Nepal-US commercial diplomacy.",
+    },
+    {
+      title: "Rhodes House Forum, Oxford",
+      description:
+        "I presented Bureaucrazy at the Kevin Xu Innovation Challenge in 2025.",
+    },
+    {
+      title: "Rotaract Club, Coffee with Career",
+      description:
+        "In October 2026 I was a guest speaker on careers in tech, and I gave feedback on group career scenario presentations.",
+    },
+    {
       title: "IGC Global Podcast",
       description:
-        "I was the featured guest in 2024, alongside the Director of the UNICC.",
+        "I was a featured guest in November 2024 with the Director of the UNICC, speaking on the digital gender divide.",
+    },
+    {
+      // Check this wording matches your talk
+      title: "Equitech Futures Institute",
+      description: "I gave a guest talk to the EFI class on building civic tech.",
     },
     {
       title: "Empower Her, Kathmandu University",
@@ -235,14 +264,64 @@ export const speaking = {
       title: "SHELITS Programme",
       description: "I spoke as a guest for the KU AI Club and NAST.",
     },
+    {
+      // Check this wording matches your talk
+      title: "Neelgai",
+      description: "I spoke on AI and civic tech.",
+    },
+  ],
+  governance: [
+    {
+      title: "inSIG 2026, IIT Bombay",
+      description:
+        "I was a fellow and rapporteur for the session on the IGF's permanent mandate.",
+    },
+    {
+      title: "Just AI Nepal",
+      description:
+        "I contributed to recommendations for Nepal's proposed AI Act.",
+    },
+    {
+      title: "APrIGF 2026, Kathmandu",
+      description: "I took part in the Asia Pacific regional IGF.",
+    },
+    {
+      title: "Youth IGF Nepal 2026",
+      description: "I joined as a civil society participant.",
+    },
+  ],
+  workshops: [
+    {
+      title: "European Union Youth Fest 2026, Kathmandu",
+      description:
+        "I co-facilitated a session on the use of AI, ethics and bias for young people at the EU's youth festival in Nepal.",
+    },
+    {
+      title: "Women LEAD Nepal",
+      description:
+        "A 2018 alumna, I facilitated a session on ethics, bias and AI for grade 12 student leaders in 2026, with live demos of how AI systems get things wrong.",
+    },
+    {
+      title: "Civic Tech Without Coding, Project Abhaya",
+      description:
+        "I co-facilitated a two-hour session on AI in government for professionals from many fields.",
+    },
+    {
+      title: "TECH 101, Nepali Women+ in Computing",
+      description: "I taught exploratory data analysis and visualization.",
+    },
+    {
+      title: "Code for Nepal",
+      description: "I run civic tech workshops as a core team member.",
+    },
   ],
   topics: [
-    "AI ethics",
     "AI governance",
+    "Internet governance",
+    "AI ethics",
     "Data privacy",
     "Women in technology",
     "Digital inclusion",
-    "Data skills",
   ],
 };
 
@@ -277,36 +356,36 @@ export const projects: Project[] = [
     title: "Chess Engine (MinMax Algo)",
     description:
       "I had no idea how to play chess, so I taught a computer to play it with a MinMax algorithm and learned the game alongside it.",
-    href: "https://github.com/Karmasta13",
+    href: "https://github.com/karmasta13/chess-engine",
   },
   {
     title: "Ropey DVD Management System",
     description:
       "A system that helps a DVD store track rentals, returns, and the details of its members.",
-    href: "https://github.com/Karmasta13",
+    href: "https://github.com/karmasta13/ropey-system",
   },
   {
     title: "Karmasta Music Store",
     description:
       "A prototype music store site built with XML for a hypothetical company looking to go online.",
-    href: "https://github.com/Karmasta13",
+    href: "https://github.com/karmasta13/academics-station/tree/main/Karmasta%20Music%20Store",
   },
   {
     title: "Berkeley College System",
     description:
       "A web database system for a hypothetical college that handles full CRUD operations.",
-    href: "https://github.com/Karmasta13",
+    href: "https://github.com/karmasta13/academics-station/tree/main/berkeley",
   },
   {
     title: "66 Days of Data",
     description:
       "A personal challenge inspired by Ken Jee to build daily data science habits and share the work.",
-    href: "https://github.com/Karmasta13",
+    href: "https://github.com/karmasta13/Learning-Station/tree/main/66-days-of-data",
   },
   {
     title: "Certification Station",
     description:
       "A place where I keep my certificates for reference and the occasional show-and-tell.",
-    href: "https://github.com/Karmasta13",
+    href: "https://github.com/karmasta13/certificates-station",
   },
 ];

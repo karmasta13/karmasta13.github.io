@@ -9,12 +9,17 @@ import Awards from "@/components/Awards";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CvRequestModal from "@/components/CvRequest";
+import FloatingActions from "@/components/FloatingActions";
 
 export default function Home() {
   return (
     <>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
         <About index={1} />
         <Work index={2} />
@@ -26,6 +31,8 @@ export default function Home() {
         <Contact index={8} />
       </main>
       <Footer />
+      <CvRequestModal />
+      <FloatingActions />
     </>
   );
 }

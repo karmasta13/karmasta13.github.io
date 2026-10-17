@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="mx-auto max-w-content px-6 pb-12">
       <div className="ink-rule mb-6 opacity-40" />
-      <div className="flex flex-col items-center justify-between gap-3 text-sm text-ink/60 sm:flex-row">
+      <div className="flex flex-col items-center justify-between gap-3 text-sm text-ink/70 sm:flex-row">
         <p className="font-display">
           © 2026 {profile.name}. All rights reserved.
         </p>

@@ -1,4 +1,5 @@
 import TornEdge from "./TornEdge";
+import Reveal from "./Reveal";
 
 export function Section({
   id,
@@ -30,7 +31,7 @@ export function Section({
     >
       {index > 0 && <TornEdge variant={variant} />}
       <div className="relative z-10 mx-auto w-full max-w-content px-6">
-        {children}
+        <Reveal>{children}</Reveal>
       </div>
     </section>
   );

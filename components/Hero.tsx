@@ -1,5 +1,6 @@
 import { profile, stats } from "@/lib/content";
 import Illustration from "./Illustration";
+import { CvButton } from "./CvRequest";
 
 export default function Hero() {
   return (
@@ -19,7 +20,7 @@ export default function Hero() {
               <h1 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
                 {profile.name}
               </h1>
-              <p className="mt-4 font-display text-lg italic text-ink/85 sm:text-xl">
+              <p className="mt-4 font-sans text-base  leading-relaxed text-ink/85 sm:text-lg">
                 {profile.title}
               </p>
               <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-ink/80 md:mx-0">
@@ -32,12 +33,7 @@ export default function Hero() {
                 >
                   Get in touch
                 </a>
-                <a
-                  href={profile.cvUrl}
-                  className="rounded-full border border-ink/50 px-7 py-3 text-base tracking-wide transition-colors hover:bg-ink hover:text-white"
-                >
-                  Request my CV
-                </a>
+                <CvButton className="rounded-full border border-ink/50 px-7 py-3 text-base tracking-wide transition-colors hover:bg-ink hover:text-white" />
               </div>
             </div>
 

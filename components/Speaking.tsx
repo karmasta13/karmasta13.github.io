@@ -1,29 +1,6 @@
 import { speaking } from "@/lib/content";
 import { Section, SectionHeading } from "./Section";
-
-function Group({
-  heading,
-  items,
-}: {
-  heading: string;
-  items: { title: string; description: string }[];
-}) {
-  return (
-    <div>
-      <h3 className="eyebrow mb-4 text-base">{heading}</h3>
-      <div className="space-y-5">
-        {items.map((it) => (
-          <div key={it.title}>
-            <p className="font-display text-lg font-semibold tracking-tight">
-              {it.title}
-            </p>
-            <p className="mt-0.5 text-ink/80">{it.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import SpeakingGroup from "./SpeakingGroup";
 
 export default function Speaking({ index }: { index?: number }) {
   return (
@@ -32,9 +9,11 @@ export default function Speaking({ index }: { index?: number }) {
       <p className="mb-10 max-w-3xl text-lg leading-relaxed text-ink/85">
         {speaking.intro}
       </p>
-      <div className="grid gap-12 md:grid-cols-2">
-        <Group heading="Mentorship" items={speaking.mentorship} />
-        <Group heading="Speaking & panels" items={speaking.panels} />
+      <div className="grid gap-6 md:grid-cols-2">
+        <SpeakingGroup heading="Mentorship" items={speaking.mentorship} />
+        <SpeakingGroup heading="Speaking & panels" items={speaking.panels} />
+        <SpeakingGroup heading="Workshops" items={speaking.workshops} />
+        <SpeakingGroup heading="Governance" items={speaking.governance} />
       </div>
       <div className="mt-12">
         <h3 className="eyebrow mb-4 text-base">Topics I speak on</h3>

@@ -50,10 +50,91 @@ body::before {
   z-index: -1;
 }
 
+/* Interactive elements get a pointer cursor */
+button:not(:disabled),
+[role="button"],
+a[href],
+label[for],
+summary {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Visible keyboard focus ring (accessibility). Only shows for keyboard nav. */
+:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Consistent hover feedback on buttons and pill-style links. The [class]
+   attribute bumps specificity above Tailwind's transition-* utilities so the
+   transform actually animates. */
+button[class],
+a[class~="rounded-full"],
+a[class~="pill"] {
+  transition-property: color, background-color, border-color, opacity,
+    box-shadow, transform;
+  transition-duration: 0.18s;
+  transition-timing-function: ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button[class]:not(:disabled):hover,
+  a[class~="rounded-full"]:hover,
+  a[class~="pill"]:hover {
+    transform: translateY(-2px);
+  }
+}
+
+button[class]:not(:disabled):active,
+a[class~="rounded-full"]:active,
+a[class~="pill"]:active {
+  transform: translateY(0);
+}
+
+/* Gentle up-and-down nudge for the scroll-down cue */
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.scroll-cue {
+  animation: scroll-cue 1.6s ease-in-out infinite;
+}
+
+/* Skip-to-content link: hidden until focused via keyboard */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  background: rgb(var(--accent));
+  color: rgb(var(--sheet));
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 @layer components {
   /* Thin framed border like the printed card */
   .card-frame {
-    border: 1px solid rgb(var(--ink) / 0.55);
+    border: 1px solid rgb(var(--ink) / 0.25);
   }
 
   /* Line-art illustration rendered as a CSS mask so the ink color follows the theme */
@@ -160,11 +241,28 @@ body::before {
   }
 }
 
+/* Scroll-reveal: content fades + slides up as it enters the viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
